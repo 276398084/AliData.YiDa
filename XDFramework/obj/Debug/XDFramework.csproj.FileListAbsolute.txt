@@ -1,0 +1,5 @@
+E:\sxd\Projects\AliexpressEF\XDFramework\bin\Debug\XDFramework.dll
+E:\sxd\Projects\AliexpressEF\XDFramework\bin\Debug\XDFramework.pdb
+E:\sxd\Projects\AliexpressEF\XDFramework\obj\Debug\XDFramework.dll
+E:\sxd\Projects\AliexpressEF\XDFramework\obj\Debug\XDFramework.pdb
+E:\sxd\Projects\AliexpressEF\XDFramework\obj\Debug\XDFramework.csprojResolveAssemblyReference.cache

@@ -1,0 +1,8 @@
+E:\sxd\Projects\AliexpressEF\XDFramework\bin\Debug\XD.Framework.dll
+E:\sxd\Projects\AliexpressEF\XDFramework\bin\Debug\XD.Framework.pdb
+E:\sxd\Projects\AliexpressEF\XDFramework\bin\Debug\FluentNHibernate.dll
+E:\sxd\Projects\AliexpressEF\XDFramework\bin\Debug\Iesi.Collections.dll
+E:\sxd\Projects\AliexpressEF\XDFramework\bin\Debug\Newtonsoft.Json.dll
+E:\sxd\Projects\AliexpressEF\XDFramework\bin\Debug\NHibernate.dll
+E:\sxd\Projects\AliexpressEF\XDFramework\obj\Debug\XD.Framework.dll
+E:\sxd\Projects\AliexpressEF\XDFramework\obj\Debug\XD.Framework.pdb

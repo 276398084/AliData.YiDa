@@ -1,0 +1,5 @@
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\AliexpressEF.YiDa.Domain.dll
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\AliexpressEF.YiDa.Domain.pdb
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.dll
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.pdb
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.csprojResolveAssemblyReference.cache
