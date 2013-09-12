@@ -1,0 +1,61 @@
+﻿.appButton
+{
+    z-index: 2;
+    display: inline;
+    cursor: pointer;
+    float: left;
+    margin: 15px;
+    width: 80px;
+    height: 80px;
+    color: white;
+    font-size: 12px;
+    position: relative;
+}
+.appButton2
+{
+    z-index: 2;
+    display: inline;
+    cursor: pointer;
+    float: left;
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+    color: white;
+    font-size: 12px;
+    position: relative;
+}
+.appButton2:hover, .appButtonEditState .appButton2
+{
+    background: url('/Content/imgs/field.png') no-repeat center center;
+}
+.appButton:hover, .appButtonEditState .appButton
+{
+    background: url('/Content/imgs/field.png') no-repeat center center;
+}
+.appButton_appIcon
+{
+    margin: 5px auto 1px;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: relative;
+}
+.appButton_appName
+{
+    color: white;
+    height: 20px;
+    text-align: center;
+    overflow: hidden;
+    background: url("/Content/imgs/title.png") no-repeat;
+    cursor: pointer;
+}
+.appButton_appName_inner
+{
+    margin-top: 3px;
+    overflow: hidden;
+    width: 80px;
+    -webkit-user-select: none;
+}

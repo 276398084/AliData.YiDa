@@ -10,6 +10,7 @@ namespace XD.Framework.AbstractModel.Mapping
     {
         public BaseEntityMap()
         {
+            Id(t => t.Id);
             Version(t => t.Version);
             Map(t => t.CreateTime, "CREATE_TIME");
             DynamicInsert();

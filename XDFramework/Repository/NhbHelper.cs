@@ -39,7 +39,7 @@ namespace XD.Framework.Repository
                                .UseOuterJoin()
                                .ConnectionString(connectionString))
                            .Mappings(m => m.FluentMappings
-                               .AddFromAssembly(Assembly.Load("OIT.CreditDC.Repository"))
+                               .AddFromAssembly(Assembly.Load("AliexpressEF.YiDa.Domain"))
                                .Conventions.Add<EnumConvention>()
                                .Conventions.Add<HasManyConvention>())
 

@@ -12,13 +12,13 @@ namespace XD.Framework.AbstractModel
     {
         public BaseEntity()
         {
-            this.Id = Guid.NewGuid().ToString();
+
             this.CreateTime = DateTime.Now;
         }
         /// <summary>
         /// 主键
         /// </summary>
-        public virtual string Id { get;  set; }
+        public virtual int Id { get; set; }
 
         /// <summary>
         /// 并发控制标识
@@ -31,7 +31,7 @@ namespace XD.Framework.AbstractModel
         /// </summary>
         public virtual DateTime CreateTime { get; private set; }
 
-        public virtual void SetId(string id)
+        public virtual void SetId(int id)
         {
             this.Id = id;
         }
@@ -55,10 +55,14 @@ namespace XD.Framework.AbstractModel
                 return false;
             }
 
-            if (Id == null || Id == string.Empty || entity.Id == null || entity.Id == string.Empty)
+            if (Id == 0)
             {
                 return false;
             }
+            //if (Id == null || Id == string.Empty || entity.Id == null || entity.Id == string.Empty)
+            //{
+            //    return false;
+            //}
 
             // Return true if the Id match:
             return Id == entity.Id;
@@ -78,10 +82,12 @@ namespace XD.Framework.AbstractModel
                 return false;
             }
 
-            if (a.Id == null || a.Id == string.Empty || b.Id == null || b.Id == string.Empty)
-            {
+            if (a.Id == 0)
                 return false;
-            }
+            //if (Id == null || Id == string.Empty || entity.Id == null || entity.Id == string.Empty)
+            //{
+            //    return false;
+            //}
 
             // Return true if the Id match:
             return a.Id == b.Id;

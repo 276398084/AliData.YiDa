@@ -12,7 +12,7 @@ namespace XD.Framework.Presentation.ExtDataModel
     /// <typeparam name="T"></typeparam>
     public class ExtTreeNode<T>
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string text { get; set; }
         public string iconCls { get; set; }
         public bool leaf { get; set; }

@@ -19,7 +19,6 @@ E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\FluentNHibe
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\NHibernate.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\Iesi.Collections.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\XD.Framework.pdb
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\Newtonsoft.Json.xml
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\System.Net.Http.xml
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\System.Net.Http.Formatting.xml
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\System.Net.Http.WebRequest.xml
@@ -44,3 +43,7 @@ E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\zh-Hans\Sys
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\obj\Debug\AliexpressEF.YiDa.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\obj\Debug\AliexpressEF.YiDa.pdb
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\AliexpressEF.API.dll
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\AliexpressEF.YiDa.Domain.dll
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\AliexpressEF.API.pdb
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa\bin\AliexpressEF.YiDa.Domain.pdb

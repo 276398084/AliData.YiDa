@@ -8,7 +8,7 @@ namespace XD.Framework.AbstractModel
     /// <summary>
     /// 树形结构基类
     /// </summary>
-    public abstract class TreeNode:BaseEntity
+    public abstract class TreeNode : BaseEntity
     {
         /// <summary>
         /// 编码
@@ -21,7 +21,7 @@ namespace XD.Framework.AbstractModel
         /// <summary>
         /// 父节点
         /// </summary>
-        public virtual string Parent { get; set; }
+        public virtual int Parent { get; set; }
         /// <summary>
         /// 是否叶
         /// </summary>
@@ -43,7 +43,7 @@ namespace XD.Framework.AbstractModel
         {
             if (parentEntity == null)
             {
-                TreeIds = Id;
+                TreeIds = Id.ToString();
                 NodeLevel = 1;
             }
             else
