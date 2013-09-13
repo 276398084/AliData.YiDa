@@ -2,16 +2,25 @@
 Ext.Loader.setConfig({
     enabled: true,
     paths: {
-        'Mod.TestModule': '/Scripts/Mod/TestModule',
+        'Mod.Order': '/Scripts/Mod/Order',
+        'SXD.ex': '/Scripts/Extensions',
         'Ext.ux': '/Scripts/ux'
     }
 });
 
-
+Ext.require([
+    'Ext.grid.*',
+    'Ext.data.*',
+    'Ext.util.*',
+    'Ext.toolbar.Paging',
+    'Ext.ux.PreviewPlugin',
+    'Ext.ModelManager',
+    'Ext.tip.QuickTipManager'
+]);
 
 Ext.define('Ali.Classics', {
     mixins: {
-        observable: 'Ext.util.Observable'
+        observable: 'Ext.util.Observable' 
     },
     constructor: function (config) {
         this.mixins.observable.constructor.call(this, config);
@@ -38,7 +47,7 @@ Ext.define('Ali.Classics', {
                 type: 'border'
             },
             items: [this.tabs, this.menu]
-            
+
         });
         return page;
     },
@@ -100,7 +109,7 @@ Ext.define('Ali.Classics', {
     buildMenuData: function () {
         Ext.Ajax.request({
             url: '/Home/GetPageMenuView',
-            type:'post',
+            type: 'post',
             async: false,
             scope: this,
             success: function (response) {

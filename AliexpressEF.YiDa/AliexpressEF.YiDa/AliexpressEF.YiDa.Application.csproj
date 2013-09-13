@@ -112,6 +112,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\Filters\ExceptionFilterAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Filters\ExceptionFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -5148,7 +5149,29 @@
     <Content Include="ext\welcome\release-notes.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Application\app.js" />
-    <Content Include="Scripts\Application\Home.js" />
+    <Content Include="Scripts\Application\Viewport.js" />
+    <Content Include="Scripts\Extensions\AutoGrid.js" />
+    <Content Include="Scripts\Extensions\CheckBox.js" />
+    <Content Include="Scripts\Extensions\CreditFieldSet.js" />
+    <Content Include="Scripts\Extensions\CrudBar.js" />
+    <Content Include="Scripts\Extensions\CustomValidate.js" />
+    <Content Include="Scripts\Extensions\Date.js" />
+    <Content Include="Scripts\Extensions\DicCombo.js" />
+    <Content Include="Scripts\Extensions\EnumCombo.js" />
+    <Content Include="Scripts\Extensions\FormWin.js" />
+    <Content Include="Scripts\Extensions\Grid.js" />
+    <Content Include="Scripts\Extensions\ModuleInstance.js" />
+    <Content Include="Scripts\Extensions\NormalCombo.js" />
+    <Content Include="Scripts\Extensions\PopupWin.js" />
+    <Content Include="Scripts\Extensions\RemotBoxCombo.js" />
+    <Content Include="Scripts\Extensions\RemotCombo.js" />
+    <Content Include="Scripts\Extensions\TreeCombo.js" />
+    <Content Include="Scripts\Extensions\TreeModel.js" />
+    <Content Include="Scripts\Extensions\TreePanel.js" />
+    <Content Include="Scripts\Extensions\Util.js" />
+    <Content Include="Scripts\Mod\Order\Index.js" />
+    <Content Include="Scripts\Mod\Order\OrderList.js" />
+    <Content Include="Scripts\rrrrrr.js" />
     <Content Include="Scripts\ux\ajax\DataSimlet.js" />
     <Content Include="Scripts\ux\ajax\JsonSimlet.js" />
     <Content Include="Scripts\ux\ajax\Simlet.js" />
@@ -5249,8 +5272,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\Extensions\" />
-    <Folder Include="Scripts\Mod\" />
     <Folder Include="Scripts\Override\" />
   </ItemGroup>
   <ItemGroup>
@@ -5292,6 +5313,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\imgs\16Icons\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\OrderList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

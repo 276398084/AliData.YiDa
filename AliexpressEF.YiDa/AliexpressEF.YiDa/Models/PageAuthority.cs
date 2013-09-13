@@ -65,11 +65,16 @@ namespace AliexpressEF.YiDa.Models
         public static IList<PageAuthority> GetTestList()
         {
             var list = new List<PageAuthority>();
-            list.Add(new PageAuthority { Id = 1, Parent = 0, Text = "一级菜单测试", IconCss16 = "系统数据维护16", IconCss24 = "", IconCss48 = "", PageId = "0", IsLeaf = false, NodeLevel = 1 });
-            list.Add(new PageAuthority { Id = 2, Parent = 1, Text = "测试模块一", IconCss16 = "databasel16", IconCss24 = "databasel24", IconCss48 = "databasel48", PageId = "/TestModule/Module1/Module1", IsLeaf = true, NodeLevel = 2 });
-            list.Add(new PageAuthority { Id = 3, Parent = 1, Text = "测试模块二", IconCss16 = "role16", IconCss24 = "role24", IconCss48 = "role48", PageId = "/TestModule/Module2/Module2", IsLeaf = true, NodeLevel = 2 });
+            list.Add(new PageAuthority { Id = 1, Parent = 0, Text = "业务管理", IconCss16 = "系统数据维护16", IconCss24 = "", IconCss48 = "", PageId = "0", IsLeaf = false, NodeLevel = 1 });
+            list.Add(new PageAuthority { Id = 2, Parent = 1, Text = "订单列表", IconCss16 = "databasel16", IconCss24 = "databasel24", IconCss48 = "databasel48", PageId = "/Order/OrderList", IsLeaf = true, NodeLevel = 2 });
+            list.Add(new PageAuthority { Id = 3, Parent = 1, Text = "订单同步", IconCss16 = "role16", IconCss24 = "role24", IconCss48 = "role48", PageId = "/Order/Index", IsLeaf = true, NodeLevel = 2 });
+            list.Add(new PageAuthority { Id = 4, Parent = 1, Text = "国家列表", IconCss16 = "role16", IconCss24 = "role24", IconCss48 = "role48", PageId = "/TestModule/Module2/Module2", IsLeaf = true, NodeLevel = 2 });
+            list.Add(new PageAuthority { Id = 5, Parent = 1, Text = "打印模板", IconCss16 = "role16", IconCss24 = "role24", IconCss48 = "role48", PageId = "/TestModule/Module2/Module2", IsLeaf = true, NodeLevel = 2 });
+            list.Add(new PageAuthority { Id = 6, Parent = 1, Text = "用户管理", IconCss16 = "role16", IconCss24 = "role24", IconCss48 = "role48", PageId = "/TestModule/Module2/Module2", IsLeaf = true, NodeLevel = 2 });
+            list.Add(new PageAuthority { Id = 7, Parent = 1, Text = "店铺管理", IconCss16 = "role16", IconCss24 = "role24", IconCss48 = "role48", PageId = "/TestModule/Module2/Module2", IsLeaf = true, NodeLevel = 2 });
+            list.Add(new PageAuthority { Id = 8, Parent = 1, Text = "打印模板", IconCss16 = "role16", IconCss24 = "role24", IconCss48 = "role48", PageId = "/TestModule/Module2/Module2", IsLeaf = true, NodeLevel = 2 });
 
-            list.Add(new PageAuthority { Id = 4, Parent = 0, Text = "一级菜单测试二", IconCss16 = "filter16", IconCss24 = "", IconCss48 = "", PageId = "0", IsLeaf = false, NodeLevel = 1 });
+            //list.Add(new PageAuthority { Id = 4, Parent = 0, Text = "一级菜单测试二", IconCss16 = "filter16", IconCss24 = "", IconCss48 = "", PageId = "0", IsLeaf = false, NodeLevel = 1 });
             return list;
         }
 
