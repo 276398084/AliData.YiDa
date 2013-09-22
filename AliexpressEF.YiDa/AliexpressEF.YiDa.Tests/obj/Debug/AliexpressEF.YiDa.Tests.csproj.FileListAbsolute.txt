@@ -1,7 +1,6 @@
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\AliexpressEF.YiDa.Tests.dll.config
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\AliexpressEF.YiDa.Tests.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\AliexpressEF.YiDa.Tests.pdb
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\AliexpressEF.YiDa.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\Newtonsoft.Json.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\System.Net.Http.dll
@@ -15,7 +14,6 @@ E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\System.Web.WebPages.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\AliexpressEF.YiDa.pdb
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\Newtonsoft.Json.xml
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\System.Net.Http.xml
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\System.Net.Http.Formatting.xml
@@ -39,11 +37,6 @@ E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\obj\Debug\AliexpressEF.YiDa.Tests.csprojResolveAssemblyReference.cache
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\obj\Debug\AliexpressEF.YiDa.Tests.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\obj\Debug\AliexpressEF.YiDa.Tests.pdb
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\XD.Framework.dll
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\FluentNHibernate.dll
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\NHibernate.dll
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\Iesi.Collections.dll
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\XD.Framework.pdb
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\obj\Debug\AliexpressEF.YiDa.Tests.csprojResolveAssemblyReference.cache

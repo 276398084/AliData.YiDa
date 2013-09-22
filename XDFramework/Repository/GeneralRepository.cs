@@ -14,13 +14,13 @@ namespace XD.Framework.Repository
     /// <summary>
     /// 数据库访问基类
     /// </summary>
-    public abstract class GeneralRepository<T> where T : BaseEntity
+    public class GeneralRepository<T> where T : BaseEntity
     {
         public ISession Session { get { return NhbHelper.GetCurrentSession(); } }
 
         public virtual IQueryOver<T, T> QueryOver()
         {
-           
+
             return Session.QueryOver<T>();
         }
         public virtual IQueryOver<T, T> QueryOver(Expression<Func<T>> alias)

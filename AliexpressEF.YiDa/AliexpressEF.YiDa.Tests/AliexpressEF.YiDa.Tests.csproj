@@ -105,12 +105,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AliexpressEF.YiDa\AliexpressEF.YiDa.Application.csproj">
-      <Project>{B8BAAE35-6E85-45D7-B5D7-CD686D32E4A1}</Project>
-      <Name>AliexpressEF.YiDa.Application</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

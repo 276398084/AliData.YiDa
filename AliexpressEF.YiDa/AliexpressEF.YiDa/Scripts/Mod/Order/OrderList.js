@@ -22,76 +22,51 @@ var pluginExpanded = true;
 Ext.define('Mod.Order.OrderList', {
     extend: 'SXD.ex.ModuleInstance',
     alias: 'Mod.Order.OrderList',
-    getForm:function (){
+    getForm: function () {
         var from = Ext.create('Ext.form.Panel', {
             region: 'north',
+            width: 550,
             fieldDefaults: {
-                labelWidth: 125,
+                labelWidth: 95,
                 autoFitErrors: false
             },
             defaultType: 'textfield',
             items: [
                 {
-                    xtype: 'fieldcontainer',
-                    fieldLabel: 'Your Name',
-                    labelStyle: 'font-weight:bold;padding:0;',
-                    layout: 'hbox',
+                    xtype: 'fieldset',
+                    title: '123123',
                     defaultType: 'textfield',
-                    defaults: {
-                        labelWidth: 89,
-                        anchor: '100%',
-                        layout: {
-                            type: 'hbox',
-                            defaultMargins: { top: 0, right: 5, bottom: 0, left: 0 }
-                        }
-                    },
+                    margin: '0 0 5 0',
                     items: [{
-                        width: 200,
-                        name: 'firstName',
-                        itemId: 'firstName',
-                        fieldLabel: 'First',
-                       
-                    }, {
-                        width: 200,
-                        name: 'middleInitial',
-                        fieldLabel: 'MI',
-                       
-                    }, {
-                        width: 200,
-                        name: 'lastName',
-                        fieldLabel: 'Last',
-                
-                       
+                        xtype: 'container',
+                        layout: 'hbox',
+                        defaultType: 'textfield',
+                        margin: '0 0 5 0',
+                        items: [{
+                            fieldLabel: 'Email Address',
+                            name: 'email',
+                            width: 200,
+                            vtype: 'email',
+                            flex: 1,
+                            allowBlank: false
+                        }, {
+                            fieldLabel: 'Phone Number',
+                            labelWidth: 100,
+                            name: 'phone',
+                            width: 200,
+                            emptyText: 'xxx-xxx-xxxx',
+                            maskRe: /[\d\-]/,
+                            regex: /^\d{3}-\d{3}-\d{4}$/,
+                            regexText: 'Must be in the format xxx-xxx-xxxx'
+                        }]
                     }]
-                }, {
-                fieldLabel: 'Start Date',
-                name: 'startdt',
-                itemId: 'startdt',
-              
-           
-            }, {
-                fieldLabel: 'End Date',
-                name: 'enddt',
-                itemId: 'enddt',
-               
-            }],
-            buttons: [{
-                text: 'Save',
-                handler: function () {
-                    this.up('form').getForm().isValid();
-                }
-            }, {
-                text: 'Cancel',
-                handler: function () {
-                    this.up('form').getForm().reset();
-                }
-            }]
+                }]
         });
         return from;
     },
     getGrid: function (store) {
         var grid = Ext.create('Ext.grid.Panel', {
-           
+
             region: 'center',
             store: store,
             disableSelection: true,
@@ -155,7 +130,7 @@ Ext.define('Mod.Order.OrderList', {
                 xtype: 'toolbar',
                 dock: 'top',
                 ui: 'footer',
-                items: ['->', {
+                items: [{
                     iconCls: 'icon-save',
                     itemId: 'save',
                     text: '同步订单',
@@ -206,7 +181,7 @@ Ext.define('Mod.Order.OrderList', {
         me.north = me.getForm();
         me.center = me.getGrid(store);
         store.loadPage(1);
-        me.viewport.add([me.north,me.center]);
+        me.viewport.add([me.north, me.center]);
     }
 });
 
