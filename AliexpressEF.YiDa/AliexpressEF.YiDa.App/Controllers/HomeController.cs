@@ -1,4 +1,5 @@
-﻿using AliexpressEF.YiDa.Models;
+﻿
+using AliexpressEF.YiDa.App.Models;
 using System;
 using System.Collections.Generic;
 using System.EnterpriseServices;
@@ -12,6 +13,16 @@ namespace AliexpressEF.YiDa.Controllers
     public class HomeController : BaseController
     {
         public ActionResult Index()
+        {
+            return View(MenuItem.GetMenu());
+        }
+
+        public ActionResult Nav()
+        {
+            return View();
+        }
+
+        public ActionResult Default()
         {
             return View();
         }

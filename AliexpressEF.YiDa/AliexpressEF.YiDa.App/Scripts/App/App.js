@@ -51,51 +51,42 @@ function getTrue(value) {
         return "否";
 }
 
-
-
 function ajaxFrom(form, url) {
+   
     $.ajax({
         url: url,
         type: "Post",
         data: $("#"+form).serialize(),
         dataType: "json",
         success: function (data) {
-            if ($.messager) {
-                $.messager.defaults.ok = '继续';
-                $.messager.defaults.cancel = '返回';
-
-                $.messager.confirm('操作提示', data, function (r) {
-                    if (!r) {
-                        window.location.href = 'javascript:history.go(-1)';
-                    }
-                });
+            if(data.IsSuccess){
+                alert(1);
             }
-
+            alert(2);
         }
     });
-
 }
 
-$(function () {
-    $("form").submit(function (form) {
-        if (form.result) {
-            ajaxFrom(this, this.action);
+//获取选中行
+function getselectedRow() {
+    var row = $('#dg').datagrid('getSelected');
+    if (row != undefined) {
+        if (row.hasOwnProperty('Id')) {
+            var id = row['Id'];
+            return id;
         }
-        return false;
-    });
-    //按钮样式
-    $('.a2').mouseover(function () { this.style.color = "#ae1121"; }).mouseout(function () { this.style.color = "#333"; });
-
-});
+    }
+    $.messager.alert('操作提示', '请选择数据!', 'warning');
+    return (undefined);
+}
 
 //删除的按钮
-function flexiDelete(grid, url) {
+function del(grid, url) {
     var rows = $('#' + grid).datagrid('getSelections');
     if (rows.length == 0) {
         $.messager.alert('操作提示', '请选择数据!', 'warning');
         return false;
     }
-
     var arr = [];
     for (var i = 0; i < rows.length; i++) {
         arr.push(rows[i].Id);
@@ -121,5 +112,27 @@ function flexiDelete(grid, url) {
             });
         }
     });
-
 };
+
+
+//跳出弹窗
+function showdlg(url, dlg, handle) {
+    $('#' + dlg).load(url, function () {
+        $(this).dialog({
+            title: '新建',
+            modal: true,
+            rownumbers: true,
+            loadingMessage: '正在加载...',
+            buttons: [{
+                text: '提交',
+                iconCls: 'icon-ok',
+                handler: handle
+            }, {
+                text: '取消',
+                handler: function () {
+                    $('#' + dlg).dialog('close');
+                }
+            }]
+        });
+    }).dialog('open');
+}

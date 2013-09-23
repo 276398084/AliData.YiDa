@@ -1,0 +1,88 @@
+﻿@model AliexpressEF.YiDa.Domain.AliShopType
+
+@{
+   Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>AliexpressEF.YiDa.Domain.AliShopType</title>
+</head>
+<body>
+<fieldset>
+    <legend>AliexpressEF.YiDa.Domain.AliShopType</legend>
+    <div class="display-label">Id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Id)
+    </div>
+
+    <div class="display-label">店铺名称</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShopTitle)
+    </div>
+
+    <div class="display-label">更新Token</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RefreshToken)
+    </div>
+
+    <div class="display-label">账户Token</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccessToken)
+    </div>
+
+    <div class="display-label">店铺负责人</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manager)
+    </div>
+
+    <div class="display-label">电话</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">状态</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">开始时间</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BeginOn)
+    </div>
+
+    <div class="display-label">结束时间</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndOn)
+    </div>
+
+    <div class="display-label">可打印数量</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CanNum)
+    </div>
+
+    <div class="display-label">Token更新时间</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TokenUpdateOn)
+    </div>
+
+    <div class="display-label">回邮接收人</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReturnName)
+    </div>
+
+    <div class="display-label">回邮地址</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReturnAddress)
+    </div>
+
+
+</fieldset>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>
+</body>
+</html>
