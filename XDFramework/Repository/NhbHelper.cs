@@ -9,6 +9,7 @@ using System.Reflection;
 using XD.Framework.Exceptions;
 using NHibernate.Dialect;
 using NHibernate.Driver;
+using NHibernate.Tool.hbm2ddl;
 
 namespace XD.Framework.Repository
 {
@@ -42,7 +43,7 @@ namespace XD.Framework.Repository
                                .AddFromAssembly(Assembly.Load("AliexpressEF.YiDa.Domain"))
                                .Conventions.Add<EnumConvention>()
                                .Conventions.Add<HasManyConvention>())
-
+                               .ExposeConfiguration(build_schema)
                            .BuildConfiguration();
 
             //Session绑定配置
@@ -61,6 +62,16 @@ namespace XD.Framework.Repository
                     break;
             }
             return cfg;
+        }
+
+
+        public static void build_schema(Configuration configuration)
+        {
+            if (true)
+            {
+                new SchemaUpdate(configuration)
+                    .Execute(true, true);
+            }
         }
         /// <summary>
         /// Session被绑定在架构中一定生命周期的时候使用

@@ -24,7 +24,7 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliUserType : BaseEntity
+    public class AliUserType:BaseEntity
     {
 
 
@@ -78,6 +78,25 @@ namespace AliexpressEF.YiDa.Domain
         ///0:停用
         /// </summary>
         public virtual int Status { get; set; }
+
+        /// <summary>
+        /// 等级
+        ///0.试用版客户
+        ///1.专业版
+        ///2.高级版
+        ///3.企业版
+        /// </summary>
+        public virtual int Type { get; set; }
+
+        /// <summary>
+        /// 开始时间
+        /// </summary>
+        public virtual DateTime BeginOn { get; set; }
+
+        /// <summary>
+        /// 结束时间
+        /// </summary>
+        public virtual DateTime EndOn { get; set; }
 
     }
 }

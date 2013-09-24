@@ -24,9 +24,9 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliOrderProductType:BaseEntity
+    public class AliOrderProductType : BaseEntity
     {
-        
+       
 
         /// <summary>
         /// OId
@@ -57,6 +57,16 @@ namespace AliexpressEF.YiDa.Domain
         /// Price
         /// </summary>
         public virtual double Price { get; set; }
+
+        /// <summary>
+        /// ImgUrl
+        /// </summary>
+        public virtual String ImgUrl { get; set; }
+
+        /// <summary>
+        /// ItemUrl
+        /// </summary>
+        public virtual String ItemUrl { get; set; }
 
     }
 }

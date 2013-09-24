@@ -45,9 +45,9 @@ namespace AliexpressEF.YiDa.Domain
 
         /// <summary>
         /// 一个月
-        //一个季度
-        //半年
-        //一年
+        ///一个季度
+        ///半年
+        ///一年
         /// </summary>
         public virtual int PayType { get; set; }
 

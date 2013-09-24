@@ -30,7 +30,7 @@ namespace AliexpressEF.YiDa.Domain
         public AliShopTypeMap()
         {
             Table("AliShops");
-          
+           
             Map(x => x.ShopTitle).Length(200);
             Map(x => x.RefreshToken).Length(200);
             Map(x => x.AccessToken).Length(200);
@@ -40,9 +40,11 @@ namespace AliexpressEF.YiDa.Domain
             Map(x => x.BeginOn);
             Map(x => x.EndOn);
             Map(x => x.CanNum);
+            Map(x => x.RefershToken);
             Map(x => x.TokenUpdateOn);
             Map(x => x.ReturnName).Length(200);
             Map(x => x.ReturnAddress).Length(400);
+            Map(x => x.BuyerMemo).Length(4000);
         }
     }
 }

@@ -25,12 +25,12 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliOrderTypeMap : BaseEntityMap<AliOrderType> 
+    public class AliOrderTypeMap : BaseEntityMap<AliOrderType>
     {
         public AliOrderTypeMap()
         {
             Table("AliOrders");
-           
+
             Map(x => x.OrderNo).Length(200);
             Map(x => x.Status);
             Map(x => x.HasPrint);
@@ -40,6 +40,7 @@ namespace AliexpressEF.YiDa.Domain
             Map(x => x.CurrencyCode).Length(20);
             Map(x => x.Amount);
             Map(x => x.LogisticType).Length(50);
+            Map(x => x.ExtTrackCode);
             Map(x => x.TrackCode).Length(50);
             Map(x => x.GenerateOn);
             Map(x => x.SendOn);

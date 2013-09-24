@@ -25,12 +25,12 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliUserTypeMap : BaseEntityMap<AliUserType>
+    public class AliUserTypeMap : BaseEntityMap<AliUserType> 
     {
         public AliUserTypeMap()
         {
             Table("AliUsers");
-
+          
             Map(x => x.UserName).Length(200);
             Map(x => x.PassWord).Length(200);
             Map(x => x.RealName).Length(200);
@@ -41,6 +41,9 @@ namespace AliexpressEF.YiDa.Domain
             Map(x => x.Tel).Length(200);
             Map(x => x.Memo).Length(200);
             Map(x => x.Status);
+            Map(x => x.Type);
+            Map(x => x.BeginOn);
+            Map(x => x.EndOn);
         }
     }
 }

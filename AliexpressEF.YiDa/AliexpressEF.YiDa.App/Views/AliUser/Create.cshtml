@@ -8,115 +8,110 @@
 
     $(function () {
 
-		
+
     });
-    
+
 </script>
 
 @using (Html.BeginForm("Create", "AliUser", FormMethod.Post, new { id = "c_form" }))
 {
-<fieldset>
-<table class="editForm">
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Id,"Id:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Id,new{@id="c_Id"})
-		</td>
-	</tr>
+    <fieldset>
+        <table class="grid">
+            <tr>
+               
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.UserName,"用户名:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.UserName,new{@id="c_UserName"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.UserName, "用户名:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.UserName, new { @id = "c_UserName" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.PassWord,"密码:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.PassWord,new{@id="c_PassWord"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.PassWord, "密码:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.PassWord, new { @id = "c_PassWord" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.RealName,"真实名称:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.RealName,new{@id="c_RealName"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.RealName, "真实名称:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.RealName, new { @id = "c_RealName" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Phone,"手机:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Phone,new{@id="c_Phone"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Phone, "手机:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Phone, new { @id = "c_Phone" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Address,"地址:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Address,new{@id="c_Address"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Address, "地址:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Address, new { @id = "c_Address" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.QQ,"QQ:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.QQ,new{@id="c_QQ"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.QQ, "QQ:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.QQ, new { @id = "c_QQ" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.WW,"WW:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.WW,new{@id="c_WW"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.WW, "WW:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.WW, new { @id = "c_WW" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Tel,"电话:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Tel,new{@id="c_Tel"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Tel, "电话:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Tel, new { @id = "c_Tel" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Memo,"Memo:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Memo,new{@id="c_Memo"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Memo, "Memo:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Memo, new { @id = "c_Memo" })
+                </td>
+            </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Status,"Status:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Status,new{@id="c_Status"})
-		</td>
-	</tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Status, "Status:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Status, new { @id = "c_Status" })
+                </td>
+            </tr>
 
 
-</table>
-</fieldset>
+        </table>
+    </fieldset>
 }

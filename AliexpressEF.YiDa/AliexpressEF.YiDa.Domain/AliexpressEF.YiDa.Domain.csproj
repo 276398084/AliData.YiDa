@@ -51,12 +51,14 @@
     <Compile Include="Entities\AliOrderType.cs" />
     <Compile Include="Entities\AliShopType.cs" />
     <Compile Include="Entities\AliUserType.cs" />
+    <Compile Include="Entities\CountryType.cs" />
     <Compile Include="Entities\PayRecordType.cs" />
     <Compile Include="Entities\PrintTemplateType.cs" />
     <Compile Include="Mappings\AliOrderProductTypeMap.cs" />
     <Compile Include="Mappings\AliOrderTypeMap.cs" />
     <Compile Include="Mappings\AliShopTypeMap.cs" />
     <Compile Include="Mappings\AliUserTypeMap.cs" />
+    <Compile Include="Mappings\CountryTypeMap.cs" />
     <Compile Include="Mappings\PayRecordTypeMap.cs" />
     <Compile Include="Mappings\PrintTemplateTypeMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

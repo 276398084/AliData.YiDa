@@ -4,15 +4,14 @@
 
 using System;
 using System.Collections.Generic;
-using FluentNHibernate.Mapping;
-using XD.Framework.AbstractModel.Mapping;
+using XD.Framework.AbstractModel;
 
 namespace AliexpressEF.YiDa.Domain
 {
 
     /// <summary>
-    /// PrintTemplateTypeMap
-    /// 打印模板
+    /// CountryType
+    /// 国家表
     /// 
     /// 修改纪录
     /// 
@@ -25,15 +24,24 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class PrintTemplateTypeMap : BaseEntityMap<PrintTemplateType>
+    public class CountryType:BaseEntity
     {
-        public PrintTemplateTypeMap()
-        {
-            Table("PrintTemplate");
+       
 
-            Map(x => x.UId);
-            Map(x => x.TempName).Length(40);
-            Map(x => x.Content);
-        }
+        /// <summary>
+        /// CCountry
+        /// </summary>
+        public virtual String CCountry { get; set; }
+
+        /// <summary>
+        /// ECountry
+        /// </summary>
+        public virtual String ECountry { get; set; }
+
+        /// <summary>
+        /// CountryCode
+        /// </summary>
+        public virtual String CountryCode { get; set; }
+
     }
 }

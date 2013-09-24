@@ -52,14 +52,13 @@ function getTrue(value) {
 }
 
 function ajaxFrom(form, url) {
-   
     $.ajax({
         url: url,
         type: "Post",
-        data: $("#"+form).serialize(),
+        data: $("#" + form).serialize(),
         dataType: "json",
         success: function (data) {
-            if(data.IsSuccess){
+            if (data.IsSuccess) {
                 alert(1);
             }
             alert(2);
@@ -68,8 +67,8 @@ function ajaxFrom(form, url) {
 }
 
 //获取选中行
-function getselectedRow() {
-    var row = $('#dg').datagrid('getSelected');
+function getselectedRow(gird) {
+    var row = gird.datagrid('getSelected');
     if (row != undefined) {
         if (row.hasOwnProperty('Id')) {
             var id = row['Id'];
@@ -82,7 +81,7 @@ function getselectedRow() {
 
 //删除的按钮
 function del(grid, url) {
-    var rows = $('#' + grid).datagrid('getSelections');
+    var rows = grid.datagrid('getSelections');
     if (rows.length == 0) {
         $.messager.alert('操作提示', '请选择数据!', 'warning');
         return false;
@@ -91,15 +90,14 @@ function del(grid, url) {
     for (var i = 0; i < rows.length; i++) {
         arr.push(rows[i].Id);
     }
-
     $.messager.confirm('操作提示', "确认删除这 " + arr.length + " 项吗？", function (r) {
         if (r) {
-            $.post(url, { query: arr.join(",") }, function (res) {
+            $.post(url, { ids: arr.join(",") }, function (response) {
                 if (res == "OK") {
                     //移除删除的数据
                     $.messager.alert('操作提示', '删除成功!', 'info');
-                    $("#flexigridData").datagrid("reload");
-                    $("#flexigridData").datagrid("clearSelections");
+                    grid.datagrid("reload");
+                    grid.datagrid("clearSelections");
                 }
                 else {
                     if (res == "") {
@@ -114,6 +112,40 @@ function del(grid, url) {
     });
 };
 
+
+/**
+ * @author 孙宇
+ * 
+ * @requires jQuery,EasyUI
+ * 
+ * 创建一个模式化的dialog
+ * 
+ * @returns $.modalDialog.handler 这个handler代表弹出的dialog句柄
+ * 
+ * @returns $.modalDialog.xxx 这个xxx是可以自己定义名称，主要用在弹窗关闭时，刷新某些对象的操作，可以将xxx这个对象预定义好
+ */
+$.modalDialog = function (options) {
+    if ($.modalDialog.handler == undefined) {// 避免重复弹出
+        var opts = $.extend({
+            title: '',
+            width: 840,
+            height: 680,
+            modal: true,
+            onClose: function () {
+                $.modalDialog.handler = undefined;
+                $(this).dialog('destroy');
+            },
+            onOpen: function () {
+                parent.$.messager.progress({
+                    title: '提示',
+                    text: '数据处理中，请稍后....'
+                });
+            }
+        }, options);
+        opts.modal = true;// 强制此dialog为模式化，无视传递过来的modal参数
+        return $.modalDialog.handler = $('<div/>').dialog(opts);
+    }
+};
 
 //跳出弹窗
 function showdlg(url, dlg, handle) {

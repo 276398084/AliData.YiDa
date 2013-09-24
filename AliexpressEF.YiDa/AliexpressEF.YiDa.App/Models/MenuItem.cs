@@ -51,13 +51,19 @@ namespace AliexpressEF.YiDa.App.Models
         public static List<MenuItem> GetMenu()
         {
             var list = new List<MenuItem>();
-            list.Add(new MenuItem { Id = 1, ParentId = 0, Code = "YW", FullName = "业务管理", ImageIndex = "", NavigateUrl = "", SortCode = 100 });
-            // list.Add(new MenuItem { Id = 2, ParentId = 0, Code = "Base", FullName = "基础设置", ImageIndex = "", NavigateUrl = "", SortCode = 90 });
+            list.Add(new MenuItem { Id = 1, ParentId = 0, Code = "YW", FullName = "订单管理", ImageIndex = "", NavigateUrl = "", SortCode = 100 });
+            list.Add(new MenuItem { Id = 2, ParentId = 0, Code = "Base", FullName = "基础设置", ImageIndex = "", NavigateUrl = "", SortCode = 90 });
             list.Add(new MenuItem { Id = 3, ParentId = 1, Code = "Order", FullName = "订单列表", ImageIndex = "", NavigateUrl = "", SortCode = 90 });
-            list.Add(new MenuItem { Id = 4, ParentId = 1, Code = "Country", FullName = "国家列表", ImageIndex = "", NavigateUrl = "", SortCode = 90 });
-            list.Add(new MenuItem { Id = 5, ParentId = 1, Code = "Address", FullName = "发货地址", ImageIndex = "", NavigateUrl = "", SortCode = 90 });
-            list.Add(new MenuItem { Id = 6, ParentId = 1, Code = "Template", FullName = "模板设置", ImageIndex = "", NavigateUrl = "", SortCode = 90 });
-            list.Add(new MenuItem { Id = 7, ParentId = 1, Code = "Shop", FullName = "店铺管理", ImageIndex = "", NavigateUrl = "/AliShop/Index", SortCode = 90 });
+            list.Add(new MenuItem { Id = 4, ParentId = 2, Code = "Country", FullName = "国家列表", ImageIndex = "", NavigateUrl = "/Country/Index", SortCode = 90 });
+            list.Add(new MenuItem { Id = 5, ParentId = 2, Code = "Address", FullName = "发货地址", ImageIndex = "", NavigateUrl = "", SortCode = 90 });
+            list.Add(new MenuItem { Id = 6, ParentId = 2, Code = "Template", FullName = "模板设置", ImageIndex = "", NavigateUrl = "", SortCode = 90 });
+            list.Add(new MenuItem { Id = 7, ParentId = 2, Code = "Shop", FullName = "店铺管理", ImageIndex = "", NavigateUrl = "/AliShop/Index", SortCode = 90 });
+            list.Add(new MenuItem { Id = 8, ParentId = 2, Code = "Shop", FullName = "给客户的留言", ImageIndex = "", NavigateUrl = "/AliShop/Index", SortCode = 90 });
+            list.Add(new MenuItem { Id = 9, ParentId = 1, Code = "Shop", FullName = "缺货订单", ImageIndex = "", NavigateUrl = "/AliShop/Index", SortCode = 90 });
+            list.Add(new MenuItem { Id = 10, ParentId = 1, Code = "Shop", FullName = "发货扫描", ImageIndex = "", NavigateUrl = "/AliShop/Index", SortCode = 90 });
+            list.Add(new MenuItem { Id = 11, ParentId = 1, Code = "Shop", FullName = "缺货扫描", ImageIndex = "", NavigateUrl = "/AliShop/Index", SortCode = 90 });
+
+
 
             var items = new List<MenuItem>();
 

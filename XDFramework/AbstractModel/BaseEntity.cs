@@ -20,10 +20,10 @@ namespace XD.Framework.AbstractModel
         /// </summary>
         public virtual int Id { get; set; }
 
-        /// <summary>
-        /// 并发控制标识
-        /// </summary>
-        public virtual Int32 Version { get; private set; }
+        ///// <summary>
+        ///// 并发控制标识
+        ///// </summary>
+        //public virtual Int32 Version { get; private set; }
 
         /// <summary>
         /// 数据创建时间

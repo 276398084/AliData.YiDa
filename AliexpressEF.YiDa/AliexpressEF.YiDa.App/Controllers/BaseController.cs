@@ -23,8 +23,6 @@ namespace AliexpressEF.YiDa.Controllers
 
         }
 
-
-
         private AliUserType currentUser;
 
         public AliUserType CurrentUser

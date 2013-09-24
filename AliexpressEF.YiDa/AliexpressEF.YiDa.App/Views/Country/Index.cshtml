@@ -1,13 +1,15 @@
-﻿@model IEnumerable<AliexpressEF.YiDa.Domain.AliShopType>
+﻿
+@model IEnumerable<AliexpressEF.YiDa.Domain.CountryType>
 @{
     ViewBag.Title = "Index";
 }
 <body class="easyui-layout">
-    <script language="javascript" type="text/javascript">
+
+<script language="javascript" type="text/javascript">
         var grid;
         $(function () {
             grid = $('#dg').datagrid({
-                url: '@Url.Action("List", "AliShop")',
+                url: '/Country/List',
                 pageNumber: 1,
                 idField: 'Id',
                 iconCls: 'icon-view',
@@ -23,11 +25,12 @@
                 rownumbers: true,
                 remoteSort: false,
                 columns: [[
-                { title: 'id', field: 'Id', width: 40, sortable: true },  //主键
-                 { title: 'ShopTitle', field: 'ShopTitle', width: 80, sortable: true },
-                 { title: 'RefreshToken', field: 'RefreshToken', width: 80, sortable: true },
-                 { title: 'AccessToken', field: 'AccessToken', width: 80, sortable: true }
-                ]],
+{ title: 'Id', field: 'Id', width: 80, sortable: true },
+{ title: 'CCountry', field: 'CCountry', width: 80, sortable: true },
+{ title: 'ECountry', field: 'ECountry', width: 80, sortable: true },
+{ title: 'CountryCode', field: 'CountryCode', width: 80, sortable: true },
+]]
+,
                 toolbar: [{
                     id: 'btnAdd',
                     text: '添加',
@@ -75,7 +78,7 @@
                 title: '添加数据',
                 width: 650,
                 height: 350,
-                href: '/AliShop/Create',
+                href: '/Country/Create',
                 buttons: [{
                     text: '添加',
                     handler: function () {
@@ -95,7 +98,7 @@
                     title: '编辑数据',
                     width: 650,
                     height: 300,
-                    href: '/AliShop/edit/' + id,
+                    href: '/Country/edit/' + id,
                     buttons: [{
                         text: '修改',
                         handler: function () {
@@ -111,46 +114,27 @@
 
         function doSearch() {
             search = $('#txtSearch').searchbox("getName") + "&" + $('#txtSearch').searchbox("getValue") + "^";
-            $("#dg").datagrid("load", {
+            grid.datagrid("load", {
                 search: search
             });
         }
     </script>
-    <div region="center">
-        <fieldset>
-            <legend>数据查询</legend>
-            <table border="0">
-                <tr>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /><a href="#" class="easyui-linkbutton" iconcls="icon-search" onclick="doSearch();">查询</a></td>
+<div region="center">
+	<fieldset>
+        <legend>数据查询</legend>
+        <table border="0">
+			<tr>
+            <td><label>Id:</label><input type='text' id='txtId' /></td>
+            <td><label>CCountry:</label><input type='text' id='txtCCountry' /></td>
+            <td><label>ECountry:</label><input type='text' id='txtECountry' /></td>
+            <td><label>CountryCode:</label><input type='text' id='txtCountryCode' /></td>
+<a href='#' class='easyui-linkbutton' iconcls='icon-search' onclick='doSearch();'>查询</a>
+</tr>
 
-                </tr>
-            </table>
-
-
-        </fieldset>
-        <table id="dg">
-        </table>
-
-
-        <div id="c_dlg"></div>
-        <div id="e_dlg"></div>
-
-    </div>
+		</table>
+    </fieldset>
+	<table id="dg">  
+	</table>
+       
+</div>
 </body>

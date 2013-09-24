@@ -24,9 +24,9 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliOrderType : BaseEntity
+    public class AliOrderType:BaseEntity
     {
-       
+        
 
         /// <summary>
         /// OrderNo
@@ -72,6 +72,11 @@ namespace AliexpressEF.YiDa.Domain
         /// 发货方式
         /// </summary>
         public virtual String LogisticType { get; set; }
+
+        /// <summary>
+        /// 预定挂号条码
+        /// </summary>
+        public virtual String ExtTrackCode { get; set; }
 
         /// <summary>
         /// 挂号条码

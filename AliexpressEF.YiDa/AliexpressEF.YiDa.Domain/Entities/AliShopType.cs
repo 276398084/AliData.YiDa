@@ -27,7 +27,6 @@ namespace AliexpressEF.YiDa.Domain
     public class AliShopType : BaseEntity
     {
        
-
         /// <summary>
         /// 店铺名称
         /// </summary>
@@ -74,6 +73,11 @@ namespace AliexpressEF.YiDa.Domain
         public virtual int CanNum { get; set; }
 
         /// <summary>
+        /// RefershToken
+        /// </summary>
+        public virtual DateTime RefershToken { get; set; }
+
+        /// <summary>
         /// Token更新时间
         /// </summary>
         public virtual DateTime TokenUpdateOn { get; set; }
@@ -87,6 +91,11 @@ namespace AliexpressEF.YiDa.Domain
         /// 回邮地址
         /// </summary>
         public virtual String ReturnAddress { get; set; }
+
+        /// <summary>
+        /// 致客户信
+        /// </summary>
+        public virtual String BuyerMemo { get; set; }
 
     }
 }

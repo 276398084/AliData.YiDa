@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AliShopController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\Filters\ExceptionFilterAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,6 +138,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\common.css" />
     <Content Include="Content\imgs\anquantuichu.gif" />
     <Content Include="Content\imgs\bangzhu.gif" />
     <Content Include="Content\imgs\beijing.gif" />
@@ -710,7 +712,9 @@
     <Content Include="Scripts\Easyui\themes\metro\tree.css" />
     <Content Include="Scripts\Easyui\themes\metro\validatebox.css" />
     <Content Include="Scripts\Easyui\themes\metro\window.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -794,6 +798,11 @@
     <Content Include="Views\AliUser\Details.cshtml" />
     <Content Include="Views\AliUser\Edit.cshtml" />
     <Content Include="Views\AliUser\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Country\Create.cshtml" />
+    <Content Include="Views\Country\Edit.cshtml" />
+    <Content Include="Views\Country\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

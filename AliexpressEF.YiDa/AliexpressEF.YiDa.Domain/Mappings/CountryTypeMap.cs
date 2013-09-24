@@ -11,8 +11,8 @@ namespace AliexpressEF.YiDa.Domain
 {
 
     /// <summary>
-    /// AliOrderProductTypeMap
-    /// 订单商品
+    /// CountryTypeMap
+    /// 国家表
     /// 
     /// 修改纪录
     /// 
@@ -25,20 +25,15 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliOrderProductTypeMap : BaseEntityMap<AliOrderProductType> 
+    public class CountryTypeMap : BaseEntityMap<CountryType> 
     {
-        public AliOrderProductTypeMap()
+        public CountryTypeMap()
         {
-            Table("AliOrderProducts");
-          
-            Map(x => x.OId);
-            Map(x => x.ItemId).Length(100);
-            Map(x => x.SKU).Length(200);
-            Map(x => x.Qty);
-            Map(x => x.Title).Length(800);
-            Map(x => x.Price);
-            Map(x => x.ImgUrl).Length(400);
-            Map(x => x.ItemUrl).Length(400);
+            Table("Countrys");
+            
+            Map(x => x.CCountry).Length(100);
+            Map(x => x.ECountry).Length(100);
+            Map(x => x.CountryCode).Length(100);
         }
     }
 }

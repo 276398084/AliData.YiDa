@@ -8,7 +8,7 @@
 
     $(function () {
 
-		
+
         $('#c_BeginOn').datebox();
 
 
@@ -17,133 +17,137 @@
 
         $('#c_TokenUpdateOn').datebox();
 
+        parent.$.messager.progress('close');
 
+        $('#form').form({
+            url: '/AliShop/Create',
+            onSubmit: function () {
+                parent.$.messager.progress({
+                    title: '提示',
+                    text: '数据处理中，请稍后....'
+                });
+                var isValid = $(this).form('validate');
+                if (!isValid) {
+                    parent.$.messager.progress('close');
+                }
+                return isValid;
+            },
+            success: function (result) {
+                parent.$.messager.progress('close');
+                result = $.parseJSON(result);
+                if (result.IsSuccess) {
+                    alert("1");
+                    //parent.$.modalDialog.openner_treeGrid.treegrid('reload');//之所以能在这里调用到parent.$.modalDialog.openner_treeGrid这个对象，是因为resource.jsp页面预定义好了
+                    //parent.layout_west_tree.tree('reload');
+                    parent.$.modalDialog.penner_grid.datagrid('reload');
+                    parent.$.modalDialog.handler.dialog('close');
+                }
+
+            }
+        });
     });
-    
+
 </script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'center',border:false" title="" style="overflow: hidden;">
+        @using (Html.BeginForm("", "", FormMethod.Post, new { id = "form" }))
+        {
+            <table class="grid">
+                <tr>
+                    <td align="right">ID：
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Id, new { @id = "c_Id" })
+                    </td>
+                    <td align="right"></td>
+                    <td>
+                        <input class="easyui-validatebox" type="text" name="ShopTitle" data-options="required:true"></input>
+                    </td>
+                </tr>
 
-@using (Html.BeginForm("Create", "AliShop", FormMethod.Post, new { id = "c_form" }))
-{
-<fieldset>
-<table class="editForm">
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Id,"Id:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Id,new{@id="c_Id"})
-		</td>
-	</tr>
+                <tr>
+                    <td align="right">更新Token：
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.RefreshToken, new { @id = "c_RefreshToken" })
+                    </td>
+                    <td align="right">账户Token：
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.AccessToken, new { @id = "c_AccessToken" })
+                    </td>
+                </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.ShopTitle,"店铺名称:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.ShopTitle,new{@id="c_ShopTitle"})
-		</td>
-	</tr>
+                <tr>
+                    <th>
+                        @Html.LabelFor(model => model.Manager, "店铺负责人:")
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.Manager, new { @id = "c_Manager" })
+                    </td>
+                    <th>
+                        @Html.LabelFor(model => model.Phone, "电话:")
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.Phone, new { @id = "c_Phone" })
+                    </td>
+                </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.RefreshToken,"更新Token:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.RefreshToken,new{@id="c_RefreshToken"})
-		</td>
-	</tr>
+                <tr>
+                    <th>
+                        @Html.LabelFor(model => model.Status, "状态:")
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.Status, new { @id = "c_Status" })
+                    </td>
+                    <th>
+                        @Html.LabelFor(model => model.BeginOn, "开始时间:")
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.BeginOn, new { @id = "c_BeginOn" })
+                    </td>
+                </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.AccessToken,"账户Token:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.AccessToken,new{@id="c_AccessToken"})
-		</td>
-	</tr>
+                <tr>
+                    <th>
+                        @Html.LabelFor(model => model.EndOn, "结束时间:")
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.EndOn, new { @id = "c_EndOn" })
+                    </td>
+                    <th>
+                        @Html.LabelFor(model => model.CanNum, "可打印数量:")
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.CanNum, new { @id = "c_CanNum" })
+                    </td>
+                </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Manager,"店铺负责人:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Manager,new{@id="c_Manager"})
-		</td>
-	</tr>
+                <tr>
+                    <th>
+                        @Html.LabelFor(model => model.TokenUpdateOn, "Token更新时间:")
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.TokenUpdateOn, new { @id = "c_TokenUpdateOn" })
+                    </td>
+                    <th>
+                        @Html.LabelFor(model => model.ReturnName, "回邮接收人:")
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.ReturnName, new { @id = "c_ReturnName" })
+                    </td>
+                </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Phone,"电话:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Phone,new{@id="c_Phone"})
-		</td>
-	</tr>
+                <tr>
+                    <th>
+                        @Html.LabelFor(model => model.ReturnAddress, "回邮地址:")
+                    </th>
+                    <td colspan="3">
+                        @Html.TextBoxFor(model => model.ReturnAddress, new { @id = "c_ReturnAddress" })
+                    </td>
+                </tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Status,"状态:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Status,new{@id="c_Status"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.BeginOn,"开始时间:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.BeginOn,new{@id="c_BeginOn"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.EndOn,"结束时间:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.EndOn,new{@id="c_EndOn"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.CanNum,"可打印数量:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.CanNum,new{@id="c_CanNum"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.TokenUpdateOn,"Token更新时间:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.TokenUpdateOn,new{@id="c_TokenUpdateOn"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.ReturnName,"回邮接收人:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.ReturnName,new{@id="c_ReturnName"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.ReturnAddress,"回邮地址:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.ReturnAddress,new{@id="c_ReturnAddress"})
-		</td>
-	</tr>
-
-
-</table>
-</fieldset>
-}
+            </table>
+        }
+    </div>
+</div>

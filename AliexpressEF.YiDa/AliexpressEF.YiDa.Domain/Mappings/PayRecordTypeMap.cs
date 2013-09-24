@@ -30,7 +30,7 @@ namespace AliexpressEF.YiDa.Domain
         public PayRecordTypeMap()
         {
             Table("PayRecord");
-          
+           
             Map(x => x.Uid);
             Map(x => x.Shop).Length(200);
             Map(x => x.PayAccount).Length(200);
