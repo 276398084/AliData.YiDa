@@ -1,11 +1,11 @@
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\AliexpressEF.YiDa.Domain.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\AliexpressEF.YiDa.Domain.pdb
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.dll
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.pdb
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.csprojResolveAssemblyReference.cache
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\FluentNHibernate.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\NHibernate.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\XD.Framework.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\Newtonsoft.Json.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\Iesi.Collections.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\bin\Debug\XD.Framework.pdb
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.csprojResolveAssemblyReference.cache
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.dll
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Domain\obj\Debug\AliexpressEF.YiDa.Domain.pdb

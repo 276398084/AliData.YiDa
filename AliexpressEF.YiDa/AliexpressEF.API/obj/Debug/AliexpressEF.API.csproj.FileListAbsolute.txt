@@ -1,5 +1,6 @@
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.API\bin\Debug\AliexpressEF.API.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.API\bin\Debug\AliexpressEF.API.pdb
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.API\bin\Debug\Newtonsoft.Json.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.API\obj\Debug\AliexpressEF.API.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.API\obj\Debug\AliexpressEF.API.pdb
-E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.API\bin\Debug\Newtonsoft.Json.dll
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.API\obj\Debug\AliexpressEF.API.csprojResolveAssemblyReference.cache

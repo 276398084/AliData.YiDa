@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliexpressEF.YiDa.App.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliexpressEF.YiDa.Application(Extjs)", "AliexpressEF.YiDa\AliexpressEF.YiDa.Application(Extjs).csproj", "{B8BAAE35-6E85-45D7-B5D7-CD686D32E4A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerator(代码生成)", "..\..\..\..\projects\KeWeiOMS\CodeGenerator\CodeGenerator\CodeGenerator(代码生成).csproj", "{7C221F76-EB44-481F-8991-DD0E99F95B7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B8BAAE35-6E85-45D7-B5D7-CD686D32E4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8BAAE35-6E85-45D7-B5D7-CD686D32E4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8BAAE35-6E85-45D7-B5D7-CD686D32E4A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C221F76-EB44-481F-8991-DD0E99F95B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C221F76-EB44-481F-8991-DD0E99F95B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C221F76-EB44-481F-8991-DD0E99F95B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C221F76-EB44-481F-8991-DD0E99F95B7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

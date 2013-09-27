@@ -32,7 +32,7 @@ namespace AliexpressEF.YiDa.Domain
             Table("AliOrders");
 
             Map(x => x.OrderNo).Length(200);
-            Map(x => x.Status);
+            Map(x => x.Status).Length(200);
             Map(x => x.HasPrint);
             Map(x => x.HasMerger);
             Map(x => x.BuyerName).Length(200);
@@ -55,7 +55,8 @@ namespace AliexpressEF.YiDa.Domain
             Map(x => x.RecipientPostCode).Length(200);
             Map(x => x.OrderNote).Length(2000);
             Map(x => x.ShopId);
-            Map(x => x.SellNote).Length(2000);
+            Map(x => x.UId);
+            Map(x => x.ShopTitle);
         }
     }
 }

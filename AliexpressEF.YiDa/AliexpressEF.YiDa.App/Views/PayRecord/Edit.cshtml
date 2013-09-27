@@ -1,0 +1,117 @@
+﻿@model AliexpressEF.YiDa.Domain.PayRecordType
+@{
+    Layout = null;
+}
+<script type="text/javascript">
+    $(function () {
+        //这里写加载下拉列表、修改编辑控件的初始化值
+		
+        $('#e_PayOn').datebox();
+
+
+
+		parent.$.messager.progress('close');
+
+        $('#form').form({
+            url: '/PayRecord/Edit',
+            onSubmit: function () {
+                parent.$.messager.progress({
+                    title: '提示',
+                    text: '数据处理中，请稍后....'
+                });
+                var isValid = $(this).form('validate');
+                if (!isValid) {
+                    parent.$.messager.progress('close');
+                }
+                return isValid;
+            },
+            success: function (result) {
+                parent.$.messager.progress('close');
+                result = $.parseJSON(result);
+                if (result.IsSuccess) {
+                    //parent.$.modalDialog.openner_treeGrid.treegrid('reload');//之所以能在这里调用到parent.$.modalDialog.openner_treeGrid这个对象，是因为resource.jsp页面预定义好了
+                    //parent.layout_west_tree.tree('reload');
+                    parent.$.modalDialog.penner_grid.datagrid('reload');
+                    parent.$.modalDialog.handler.dialog('close');
+                }
+				else{
+					alert(result.Result);
+				}
+
+            }
+        });
+    });
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'center',border:false" title="" style="overflow: hidden;">
+		@using (Html.BeginForm("", "", FormMethod.Post, new { id = "form" }))
+		{
+		<table class="grid">
+				<tr>
+		<td align="right">
+            Id：
+		</td>
+		<td align="left">
+            <input  type='text' name='Id' id='Id' value='@Model.Id' ></input>
+		</td>
+		<td align="right">
+            用户：
+		</td>
+		<td align="left">
+            <input  type='text' name='Uid' id='Uid' value='@Model.Uid' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            店铺：
+		</td>
+		<td align="left">
+            <input  type='text' name='Shop' id='Shop' value='@Model.Shop' ></input>
+		</td>
+		<td align="right">
+            用户支付宝：
+		</td>
+		<td align="left">
+            <input  type='text' name='PayAccount' id='PayAccount' value='@Model.PayAccount' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            时间类型：
+		</td>
+		<td align="left">
+            <input  type='text' name='PayType' id='PayType' value='@Model.PayType' ></input>
+		</td>
+		<td align="right">
+            接收支付宝：
+		</td>
+		<td align="left">
+            <input  type='text' name='RecipientAccount' id='RecipientAccount' value='@Model.RecipientAccount' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            付款时间：
+		</td>
+		<td align="left">
+            <input  type='text' name='PayOn' id='PayOn' value='@Model.PayOn' ></input>
+		</td>
+		<td align="right">
+            金额：
+		</td>
+		<td align="left">
+            <input  type='text' name='Amount' id='Amount' value='@Model.Amount' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            Memo：
+		</td>
+		<td align="left">
+            <input  type='text' name='Memo' id='Memo' value='@Model.Memo' ></input>
+		</td>
+
+		</table>
+		}
+	</div>
+</div>

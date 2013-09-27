@@ -1,0 +1,73 @@
+﻿@model AliexpressEF.YiDa.Domain.AliUserType
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('#form').form({
+            url: '/AliUser/Create',
+            onSubmit: function () {
+                parent.$.messager.progress({
+                    title: '提示',
+                    text: '数据处理中，请稍后....'
+                });
+                var isValid = $(this).form('validate');
+                if (!isValid) {
+                    parent.$.messager.progress('close');
+                }
+                return isValid;
+            },
+            success: function (result) {
+                parent.$.messager.progress('close');
+                result = $.parseJSON(result);
+                if (r.IsSuccess) {
+                    parent.$.modalDialog.penner_grid.datagrid('reload');
+                    parent.$.modalDialog.handler.dialog('close');
+                }
+                else {
+                    alert(result.Result);
+                }
+
+            }
+        });
+    });
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'center',border:false" title="" style="overflow: hidden;">
+        @using (Html.BeginForm("", "", FormMethod.Post, new { id = "form" }))
+        {
+            <table class="grid">
+                <tr>
+
+                    <td align="right">用户名：
+                    </td>
+                    <td align="left">
+                        <input type='text' name='UserName' id='UserName'></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">密码：
+                    </td>
+                    <td align="left">
+                        <input type='text' name='PassWord' id='PassWord'></input>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right">确认密码：
+                    </td>
+                    <td align="left">
+                        <input type='text' name='PassWord2' id='PassWord2'></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right"></td>
+                    <td align="left">
+                        <input type="submit" value="注册" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>

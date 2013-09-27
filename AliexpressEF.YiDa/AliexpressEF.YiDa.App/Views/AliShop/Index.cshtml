@@ -3,11 +3,12 @@
     ViewBag.Title = "Index";
 }
 <body class="easyui-layout">
+
     <script language="javascript" type="text/javascript">
         var grid;
         $(function () {
             grid = $('#dg').datagrid({
-                url: '@Url.Action("List", "AliShop")',
+                url: '/AliShop/List',
                 pageNumber: 1,
                 idField: 'Id',
                 iconCls: 'icon-view',
@@ -23,10 +24,16 @@
                 rownumbers: true,
                 remoteSort: false,
                 columns: [[
-                { title: 'id', field: 'Id', width: 40, sortable: true },  //主键
-                 { title: 'ShopTitle', field: 'ShopTitle', width: 80, sortable: true },
-                 { title: 'RefreshToken', field: 'RefreshToken', width: 80, sortable: true },
-                 { title: 'AccessToken', field: 'AccessToken', width: 80, sortable: true }
+                { title: 'Id', field: 'Id', width: 80, sortable: true },
+                { title: '店铺名称', field: 'ShopTitle', sortable: true },
+                {
+                    title: '状态', field: 'Status', width: 80, formatter: function (v, r, i) {
+                        return v == 0 ? "<a href='javascript:gotoActive(0)'  target='_blank' alt='点击去授权页面' >未授权</a>" : "已授权";
+                    }
+                },
+                {
+                    title: '授权时间', field: 'TokenUpdateOn', width: 200, sortable: true, formatter: getDate
+                }
                 ]],
                 toolbar: [{
                     id: 'btnAdd',
@@ -69,21 +76,28 @@
 
         });
 
+        function gotoActive() {
+            $.ajax({
+                url: '/AliShop/GetAuthUrl',
+                type: "Post",
+                dataType: "json",
+                success: function (data) {
+                    if (data.IsSuccess) {
+                        window.open();
+                    }
+                }
+            });
+        }
 
         function ShowAddOrViewDialog() {
-            parent.$.modalDialog({
-                title: '添加数据',
-                width: 650,
-                height: 350,
-                href: '/AliShop/Create',
-                buttons: [{
-                    text: '添加',
-                    handler: function () {
-                        parent.$.modalDialog.penner_grid = grid;//将grid绑定到公共变量中
-                        var f = parent.$.modalDialog.handler.find('#form');
-                        f.submit();
-                    }
-                }]
+           
+            $.ajax({
+                url: '/AliShop/GetAuthUrl',
+                type: "Post",
+                dataType: "json",
+                success: function (result) {
+                    window.showModalDialog(result.Result)
+                }
             });
         }
 
@@ -93,8 +107,8 @@
             if (id) {
                 parent.$.modalDialog({
                     title: '编辑数据',
-                    width: 650,
-                    height: 300,
+                    width: 350,
+                    height: 120,
                     href: '/AliShop/edit/' + id,
                     buttons: [{
                         text: '修改',
@@ -111,7 +125,7 @@
 
         function doSearch() {
             search = $('#txtSearch').searchbox("getName") + "&" + $('#txtSearch').searchbox("getValue") + "^";
-            $("#dg").datagrid("load", {
+            grid.datagrid("load", {
                 search: search
             });
         }
@@ -122,35 +136,14 @@
             <table border="0">
                 <tr>
                     <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /></td>
-                    <td>
-                        <label>店铺:</label><input type="text" id="txtSearch" code="ShopTitle" /><a href="#" class="easyui-linkbutton" iconcls="icon-search" onclick="doSearch();">查询</a></td>
+                        <label>店铺名称:</label><input type='text' id='txtShopTitle' /><a href='#' class='easyui-linkbutton' iconcls='icon-search' onclick='doSearch();'>查询</a>
+                    </td>
 
                 </tr>
             </table>
-
-
         </fieldset>
         <table id="dg">
         </table>
-
-
-        <div id="c_dlg"></div>
-        <div id="e_dlg"></div>
 
     </div>
 </body>

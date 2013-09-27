@@ -24,9 +24,9 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliOrderType:BaseEntity
+    public class AliOrderType : BaseEntity
     {
-        
+
 
         /// <summary>
         /// OrderNo
@@ -36,7 +36,7 @@ namespace AliexpressEF.YiDa.Domain
         /// <summary>
         /// 状态
         /// </summary>
-        public virtual int Status { get; set; }
+        public virtual string Status { get; set; }
 
         /// <summary>
         /// 是否打印
@@ -49,7 +49,12 @@ namespace AliexpressEF.YiDa.Domain
         public virtual int HasMerger { get; set; }
 
         /// <summary>
-        /// 买家ID
+        /// 买家Id
+        /// </summary>
+        public virtual String BuyerId { get; set; }
+
+        /// <summary>
+        /// 买家名称
         /// </summary>
         public virtual String BuyerName { get; set; }
 
@@ -149,9 +154,16 @@ namespace AliexpressEF.YiDa.Domain
         public virtual int ShopId { get; set; }
 
         /// <summary>
-        /// 卖家备注
+        /// 账户/店铺
         /// </summary>
-        public virtual String SellNote { get; set; }
+        public virtual string ShopTitle { get; set; }
+
+        /// <summary>
+        /// 账户/店铺
+        /// </summary>
+        public virtual int UId { get; set; }
+
+        public virtual List<AliOrderProductType> ProductList { get; set; }
 
     }
 }

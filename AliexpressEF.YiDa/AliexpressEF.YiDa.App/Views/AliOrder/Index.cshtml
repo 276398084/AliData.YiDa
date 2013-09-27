@@ -1,0 +1,235 @@
+﻿@model IEnumerable<AliexpressEF.YiDa.Domain.AliOrderType>
+@{
+    ViewBag.Title = "Index";
+}
+<body class="easyui-layout">
+    <script src="~/Scripts/Easyui/ux/datagrid-detailview.js"></script>
+    <script language="javascript" type="text/javascript">
+        var grid;
+        $(function () {
+            grid = $('#dg').datagrid({
+                url: '/AliOrder/List',
+                view: detailview,
+                pageNumber: 1,
+                idField: 'Id',
+                iconCls: 'icon-view',
+                height: 650,
+                width: function () { return document.body.clientWidth * 0.9 },
+                nowrap: true,
+                autoRowHeight: false,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                pageSize: 100,
+                pageList: [50, 100, 200],
+                rownumbers: true,
+                remoteSort: false,
+                columns: [[
+                    { title: 'Id', field: 'Id', width: 80, checkbox: true },
+                    { title: 'OrderNo', field: 'OrderNo', width: 80, sortable: true },
+                    { title: '状态', field: 'Status', width: 80, sortable: true },
+                    {
+                        title: '是否打印', field: 'HasPrint', width: 80, formatter: function (v, r, i) {
+                            //打印，合并，缺货状态显示
+                            //r.HasMerger +r.HasPrint
+                            return "";
+                        }
+                    },
+                    {
+                        title: '买家信息', field: 'BuyerName', width: 80, formatter: function (v, r, i) {
+                            return r.BuyerName + '(' + r.BuyerEmail + ')';
+                        }
+                    },
+
+                    {
+                        title: '货币', field: 'CurrencyCode', width: 80, formatter: function (v, r, i) {
+                            //货币和金额
+                            return r.CurrencyCode + ":" + r.Amount;
+                        }
+                    },
+                    { title: '发货方式', field: 'LogisticType', width: 80, sortable: true },
+                    { title: '预定挂号条码', field: 'ExtTrackCode', width: 80, sortable: true },
+                    { title: '挂号条码', field: 'TrackCode', width: 80, sortable: true },
+                    {
+                        title: '同步时间', field: 'CreateTime', width: 80, formatter: getDate
+                    },
+                    { title: '下单时间', field: 'GenerateOn', width: 80, sortable: true },
+                    { title: '发货时间', field: 'SendOn', width: 80, sortable: true },
+                    { title: '收件人国家', field: 'RecipientCountry', width: 80, sortable: true },
+                    { title: '卖家备注', field: 'SellNote', width: 80, sortable: true }
+                ]],
+                toolbar: [{
+                    id: 'btnAdd',
+                    text: '同步',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        Syn();//实现添加记录的页面
+                    }
+                }, '-', {
+                    id: 'btnEdit',
+                    text: '修改',
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        ShowEditOrViewDialog();//实现修改记录的方法
+                    }
+                }, '-', {
+                    id: 'btnDelete',
+                    text: '删除',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        del(grid, '/AliShop/Delete');//实现直接删除数据的方法
+                    }
+                }, '-', {
+                    id: 'btnView',
+                    text: '查看',
+                    iconCls: 'icon-view',
+                    handler: function () {
+                        ShowEditOrViewDialog("view");//实现查看记录详细信息的方法
+                    }
+                }, '-', {
+                    id: 'btnReload',
+                    text: '刷新',
+                    iconCls: 'icon-reload',
+                    handler: function () {
+                        //实现刷新栏目中的数据
+                        grid.datagrid("reload");
+                    }
+                }],
+                detailFormatter: function (index, row) {
+                    var html = "<table>";
+                    for (var i = 0; i < row.ProductList.length; i++) {
+                        html += '<tr>'
+                            + '<td><img src="' + row.ProductList[i]["ImgUrl"] + '"/>'
+                             + row.ProductList[i]["Title"] + "</td>"
+                            + "<td>" + row.ProductList[i]["SKU"] + "</td>"
+                            + "<td>" + row.ProductList[i]["Qty"] + "</td>"
+                           + "<td>" + row.ProductList[i]["ItemId"] + "</td>"
+                            + "<td>" + row.ProductList[i]["Price"] + "</td>"
+                            + '</tr>';
+                    }
+                    html += "</table>"
+                    return html;
+                }
+            });
+            $('#txtShopId').combobox({
+                url: '/AliShop/GetALLBox',
+                valueField: 'id',
+                textField: 'text',
+                required: true,
+                width: 150,
+                panelHeight: 'auto'
+            });
+            $('#txtShopId').combobox("setValue", 0);
+
+        });
+
+
+        function Syn() {
+
+            $.ajax({
+                url: '/AliOrder/Syn/',
+                type: "Post",
+                data: 's=' + $('#txtShopId').combobox("getValue"),
+                dataType: "json",
+                success: function (result) {
+                    parent.$.messager.progress('close');
+                    grid.datagrid("reload");
+                }
+            });
+        }
+
+
+        //编辑框
+        function ShowEditOrViewDialog() {
+            var id = getselectedRow(grid);
+            if (id) {
+                parent.$.modalDialog({
+                    title: '编辑数据',
+                    width: 650,
+                    height: 300,
+                    href: '/AliOrder/edit/' + id,
+                    buttons: [{
+                        text: '修改',
+                        handler: function () {
+                            parent.$.modalDialog.penner_grid = grid;//将grid绑定到公共变量中
+                            var f = parent.$.modalDialog.handler.find('#form');
+                            f.submit();
+                        }
+                    }]
+                });
+            }
+        }
+
+        function doSearch() {
+            search = $('#txtSearch').searchbox("getName") + "&" + $('#txtSearch').searchbox("getValue") + "^";
+            grid.datagrid("load", {
+                search: search
+            });
+        }
+    </script>
+    <div region="center">
+        <fieldset>
+            <legend>数据查询</legend>
+            <table border="0">
+                <tr>
+
+                    <td>
+                        <label>订单编号:</label><input type='text' id='txtOrderNo' />
+                    </td>
+                    <td>
+                        <label>状态:</label><input type='text' id='txtStatus' />
+                    </td>
+                    <td>
+                        <label>是否打印:</label><input type='text' id='txtHasPrint' />
+                    </td>
+                    <td>
+                        <label>收件人国家:</label><input type='text' id='txtRecipientCountry' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>店铺:</label><input type='text' id='txtShopId' />
+                    </td>
+                    <td>
+                        <label>合并订单:</label><input type='text' id='txtHasMerger' />
+                    </td>
+                    <td>
+                        <label>买家ID:</label><input type='text' id='txtBuyerName' />
+                    </td>
+                    <td>
+                        <label>买家邮箱:</label><input type='text' id='txtBuyerEmail' />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label>订单金额:</label><input type='text' id='txtAmount' />
+                    </td>
+                    <td>
+                        <label>发货方式:</label><input type='text' id='txtLogisticType' />
+                    </td>
+                    <td>
+                        <label>预定挂号条码:</label><input type='text' id='txtExtTrackCode' />
+                    </td>
+                    <td>
+                        <label>挂号条码:</label><input type='text' id='txtTrackCode' />
+                </tr>
+                <tr>
+                    <td>
+                        <input type='text' id='txtGenerateOn' />
+                    </td>
+                    <td>
+                        <input type='text' id='txtSendOn' />
+                        <a href='#' class='easyui-linkbutton' iconcls='icon-search' onclick='doSearch();'>查询</a>
+                    </td>
+
+                </tr>
+
+
+            </table>
+        </fieldset>
+        <table id="dg">
+        </table>
+
+    </div>
+</body>

@@ -5,9 +5,9 @@
 <script type="text/javascript">
     $(function () {
         //这里写加载下拉列表、修改编辑控件的初始化值
+		
 
-
-        parent.$.messager.progress('close');
+		parent.$.messager.progress('close');
 
         $('#form').form({
             url: '/Country/Edit',
@@ -31,9 +31,9 @@
                     parent.$.modalDialog.penner_grid.datagrid('reload');
                     parent.$.modalDialog.handler.dialog('close');
                 }
-                else {
-                    alert(result.Result);
-                }
+				else{
+					alert(result.Result);
+				}
 
             }
         });
@@ -41,39 +41,39 @@
 </script>
 <div class="easyui-layout" data-options="fit:true,border:false">
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;">
-        @using (Html.BeginForm("", "", FormMethod.Post, new { id = "form" }))
-        {
-            <table class="grid">
-                <tr>
-                <tr>
-                    <td align="right">Id：
-                    </td>
-                    <td align="left">
-                        <input  type='text' name='Id' id='Id' value='@Model.Id' ></input>
-                    </td>
-                    <tr>
-                        <td align="right">CCountry：
-                        </td>
-                        <td align="left">
-                            <input  type='text' name='CCountry' id='CCountry' value='@Model.CCountry' ></input>
-                        </td>
-                    </tr>
-                <tr>
-                <tr>
-                    <td align="right">ECountry：
-                    </td>
-                    <td align="left">
-                        <input  type='text' name='ECountry' id='ECountry' value='@Model.ECountry' ></input>
-                    </td>
-                    <tr>
-                        <td align="right">CountryCode：
-                        </td>
-                        <td align="left">
-                            <input  type='text' name='CountryCode' id='CountryCode' value='@Model.CountryCode' ></input>
-                        </td>
-                    </tr>
+		@using (Html.BeginForm("", "", FormMethod.Post, new { id = "form" }))
+		{
+		<table class="grid">
+				<tr>
+		<td align="right">
+            Id：
+		</td>
+		<td align="left">
+            <input  type='text' name='Id' id='Id' value='@Model.Id' ></input>
+		</td>
+		<td align="right">
+            CCountry：
+		</td>
+		<td align="left">
+            <input  type='text' name='CCountry' id='CCountry' value='@Model.CCountry' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            ECountry：
+		</td>
+		<td align="left">
+            <input  type='text' name='ECountry' id='ECountry' value='@Model.ECountry' ></input>
+		</td>
+		<td align="right">
+            CountryCode：
+		</td>
+		<td align="left">
+            <input  type='text' name='CountryCode' id='CountryCode' value='@Model.CountryCode' ></input>
+		</td>
+	</tr>
 
-            </table>
-        }
-    </div>
+		</table>
+		}
+	</div>
 </div>

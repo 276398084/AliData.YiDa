@@ -25,12 +25,12 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliShopTypeMap : BaseEntityMap<AliShopType> 
+    public class AliShopTypeMap : BaseEntityMap<AliShopType>
     {
         public AliShopTypeMap()
         {
             Table("AliShops");
-           
+
             Map(x => x.ShopTitle).Length(200);
             Map(x => x.RefreshToken).Length(200);
             Map(x => x.AccessToken).Length(200);
@@ -45,6 +45,7 @@ namespace AliexpressEF.YiDa.Domain
             Map(x => x.ReturnName).Length(200);
             Map(x => x.ReturnAddress).Length(400);
             Map(x => x.BuyerMemo).Length(4000);
+            Map(x => x.UId);
         }
     }
 }

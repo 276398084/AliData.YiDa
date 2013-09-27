@@ -26,7 +26,7 @@ namespace AliexpressEF.YiDa.Domain
     /// </summary>
     public class AliOrderProductType : BaseEntity
     {
-       
+
 
         /// <summary>
         /// OId
@@ -67,6 +67,9 @@ namespace AliexpressEF.YiDa.Domain
         /// ItemUrl
         /// </summary>
         public virtual String ItemUrl { get; set; }
+
+
+      
 
     }
 }

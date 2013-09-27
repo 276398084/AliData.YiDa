@@ -5,6 +5,15 @@ using System.Text;
 
 namespace AliexpressEF.API
 {
+
+    public class AliShop
+    {
+        public string aliId;
+        public string resource_owner;
+        public string expires_in;
+        public string refresh_token;
+        public string access_token;
+    }
     public class Currency
     {
         public int defaultFractionDigits;

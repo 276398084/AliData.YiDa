@@ -123,11 +123,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AliOrderController.cs" />
+    <Compile Include="Controllers\AliOrderProductController.cs" />
     <Compile Include="Controllers\AliShopController.cs" />
+    <Compile Include="Controllers\AliUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Filters\Common.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\Filters\ExceptionFilterAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PayRecordController.cs" />
+    <Compile Include="Controllers\PrintTemplateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +173,8 @@
     <Content Include="Content\imgs\username_bg.gif" />
     <Content Include="Content\imgs\view.png" />
     <Content Include="Content\imgs\yuanjiao.png" />
+    <Content Include="Content\install_lodop32.exe" />
+    <Content Include="Content\install_lodop64.exe" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\App\App.js" />
@@ -712,6 +720,11 @@
     <Content Include="Scripts\Easyui\themes\metro\tree.css" />
     <Content Include="Scripts\Easyui\themes\metro\validatebox.css" />
     <Content Include="Scripts\Easyui\themes\metro\window.css" />
+    <Content Include="Scripts\Easyui\ux\datagrid-detailview.js" />
+    <Content Include="Scripts\Easyui\ux\datagrid-scrollview2.js" />
+    <Content Include="Scripts\lodop\LodopFuncs.js" />
+    <Content Include="Scripts\lodop\install_lodop32.exe" />
+    <Content Include="Scripts\lodop\install_lodop64.exe" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -745,7 +758,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Default.cshtml" />
-    <Content Include="Views\Home\GetCompetence.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Nav.cshtml" />
@@ -789,13 +801,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\AliShop\Create.cshtml" />
-    <Content Include="Views\AliShop\Delete.cshtml" />
-    <Content Include="Views\AliShop\Details.cshtml" />
     <Content Include="Views\AliShop\Edit.cshtml" />
     <Content Include="Views\AliShop\Index.cshtml" />
-    <Content Include="Views\AliUser\Create.cshtml" />
-    <Content Include="Views\AliUser\Delete.cshtml" />
-    <Content Include="Views\AliUser\Details.cshtml" />
+    <Content Include="Views\AliUser\Reg.cshtml" />
     <Content Include="Views\AliUser\Edit.cshtml" />
     <Content Include="Views\AliUser\Index.cshtml" />
   </ItemGroup>
@@ -803,6 +811,41 @@
     <Content Include="Views\Country\Create.cshtml" />
     <Content Include="Views\Country\Edit.cshtml" />
     <Content Include="Views\Country\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AliOrderProduct\Create.cshtml" />
+    <Content Include="Views\AliOrderProduct\Edit.cshtml" />
+    <Content Include="Views\AliOrderProduct\Index.cshtml" />
+    <Content Include="Views\AliOrder\Create.cshtml" />
+    <Content Include="Views\AliOrder\Edit.cshtml" />
+    <Content Include="Views\AliOrder\Index.cshtml" />
+    <Content Include="Views\PayRecord\Create.cshtml" />
+    <Content Include="Views\PayRecord\Edit.cshtml" />
+    <Content Include="Views\PayRecord\Index.cshtml" />
+    <Content Include="Views\PrintTemplate\Create.cshtml" />
+    <Content Include="Views\PrintTemplate\Edit.cshtml" />
+    <Content Include="Views\PrintTemplate\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AliShop\AddressEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AliShop\SellerMemoEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AliOrder\QueList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AliOrder\OrderScanBySend.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AliOrder\OrderScanByQue.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AliUser\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\PrintData.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

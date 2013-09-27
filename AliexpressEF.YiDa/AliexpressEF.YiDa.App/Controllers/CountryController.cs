@@ -4,18 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
-
-using NHibernate;
-using AliexpressEF.YiDa.Controllers;
 using AliexpressEF.YiDa.Domain;
-using XD.Framework.Repository;
+//using KeWeiOMS.NhibernateHelper;
+using NHibernate;
 
 namespace AliexpressEF.YiDa.Controllers
 {
     public class CountryController : BaseController
     {
 
-        public ViewResult Index()
+
+
+	public ViewResult Index()
         {
             return View();
         }
@@ -61,11 +61,12 @@ namespace AliexpressEF.YiDa.Controllers
 
         public JsonResult List(int page, int rows, string sort, string order, string search)
         {
+
             long total = 0;
             IList<CountryType> objList = base.PaggingList<CountryType>(rows * (page - 1), rows, sort, search, out total);
+
             return Json(new { total = total, rows = objList });
         }
-
     }
 }
 

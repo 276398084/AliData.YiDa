@@ -17,6 +17,11 @@ namespace AliexpressEF.YiDa.Controllers
             return View(MenuItem.GetMenu());
         }
 
+        public ActionResult PrintData()
+        {
+            return View();
+        }
+
         public ActionResult Nav()
         {
             return View();

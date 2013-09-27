@@ -1,0 +1,160 @@
+﻿
+@model IEnumerable<AliexpressEF.YiDa.Domain.AliOrderProductType>
+@{
+    ViewBag.Title = "Index";
+}
+<body class="easyui-layout">
+
+<script language="javascript" type="text/javascript">
+        var grid;
+        $(function () {
+            grid = $('#dg').datagrid({
+                url: '/AliOrderProduct/List',
+                pageNumber: 1,
+                idField: 'Id',
+                iconCls: 'icon-view',
+                height: 650,
+                width: function () { return document.body.clientWidth * 0.9 },
+                nowrap: true,
+                autoRowHeight: false,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                pageSize: 100,
+                pageList: [50, 100, 200],
+                rownumbers: true,
+                remoteSort: false,
+                columns: [[
+{ title: 'Id', field: 'Id', width: 80, sortable: true },
+{ title: 'OId', field: 'OId', width: 80, sortable: true },
+{ title: 'ItemId', field: 'ItemId', width: 80, sortable: true },
+{ title: 'SKU', field: 'SKU', width: 80, sortable: true },
+{ title: 'Qty', field: 'Qty', width: 80, sortable: true },
+{ title: 'Title', field: 'Title', width: 80, sortable: true },
+{ title: 'Price', field: 'Price', width: 80, sortable: true },
+{ title: 'ImgUrl', field: 'ImgUrl', width: 80, sortable: true },
+{ title: 'ItemUrl', field: 'ItemUrl', width: 80, sortable: true }]]
+,
+                toolbar: [{
+                    id: 'btnAdd',
+                    text: '添加',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        ShowAddOrViewDialog();//实现添加记录的页面
+                    }
+                }, '-', {
+                    id: 'btnEdit',
+                    text: '修改',
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        ShowEditOrViewDialog();//实现修改记录的方法
+                    }
+                }, '-', {
+                    id: 'btnDelete',
+                    text: '删除',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        del(grid, '/AliShop/Delete');//实现直接删除数据的方法
+                    }
+                }, '-', {
+                    id: 'btnView',
+                    text: '查看',
+                    iconCls: 'icon-view',
+                    handler: function () {
+                        ShowEditOrViewDialog("view");//实现查看记录详细信息的方法
+                    }
+                }, '-', {
+                    id: 'btnReload',
+                    text: '刷新',
+                    iconCls: 'icon-reload',
+                    handler: function () {
+                        //实现刷新栏目中的数据
+                        grid.datagrid("reload");
+                    }
+                }]
+            });
+
+        });
+
+
+        function ShowAddOrViewDialog() {
+            parent.$.modalDialog({
+                title: '添加数据',
+                width: 650,
+                height: 350,
+                href: '/AliOrderProduct/Create',
+                buttons: [{
+                    text: '添加',
+                    handler: function () {
+                        parent.$.modalDialog.penner_grid = grid;//将grid绑定到公共变量中
+                        var f = parent.$.modalDialog.handler.find('#form');
+                        f.submit();
+                    }
+                }]
+            });
+        }
+
+        //编辑框
+        function ShowEditOrViewDialog() {
+            var id = getselectedRow(grid);
+            if (id) {
+                parent.$.modalDialog({
+                    title: '编辑数据',
+                    width: 650,
+                    height: 300,
+                    href: '/AliOrderProduct/edit/' + id,
+                    buttons: [{
+                        text: '修改',
+                        handler: function () {
+                            parent.$.modalDialog.penner_grid = grid;//将grid绑定到公共变量中
+                            var f = parent.$.modalDialog.handler.find('#form');
+                            f.submit();
+                        }
+                    }]
+                });
+            }
+        }
+
+
+        function doSearch() {
+            search = $('#txtSearch').searchbox("getName") + "&" + $('#txtSearch').searchbox("getValue") + "^";
+            grid.datagrid("load", {
+                search: search
+            });
+        }
+    </script>
+<div region="center">
+	<fieldset>
+        <legend>数据查询</legend>
+        <table border="0">
+			<tr>
+            <td><label>Id:</label><input type='text' id='txtId' />
+            </td>
+            <td><label>OId:</label><input type='text' id='txtOId' />
+            </td>
+            <td><label>ItemId:</label><input type='text' id='txtItemId' />
+            </td>
+            <td><label>SKU:</label><input type='text' id='txtSKU' />
+</tr>
+<tr>
+            <td><label>Qty:</label><input type='text' id='txtQty' />
+            </td>
+            <td><label>Title:</label><input type='text' id='txtTitle' />
+            </td>
+            <td><label>Price:</label><input type='text' id='txtPrice' />
+            </td>
+            <td><label>ImgUrl:</label><input type='text' id='txtImgUrl' />
+</tr>
+<tr>
+            <td><label>ItemUrl:</label><input type='text' id='txtItemUrl' />
+            </td>
+<a href='#' class='easyui-linkbutton' iconcls='icon-search' onclick='doSearch();'>查询</a></td>
+</tr>
+
+		</table>
+    </fieldset>
+	<table id="dg">  
+	</table>
+       
+</div>
+</body>

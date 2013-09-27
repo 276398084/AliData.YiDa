@@ -21,6 +21,7 @@ namespace AliexpressEF.YiDa.Controllers
         public BaseController()
         {
 
+
         }
 
         private AliUserType currentUser;
@@ -44,14 +45,40 @@ namespace AliexpressEF.YiDa.Controllers
         private AliUserType GetCurrentAccount()
         {
 
-            if (Session["aliAccount"] != null)
+            if (Session["aliUser"] != null)
             {
-                AliUserType user = (AliUserType)Session["aliAccount"];
+                AliUserType user = (AliUserType)Session["aliUser"];
                 return user;
             }
             return null;
             //return new UserType { Id = 0, Realname = "邵锡栋" };
         }
+
+        List<string> ExFilterField = new List<string>();
+
+
+
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            List<string> ExFilterField = new List<string>();
+            ExFilterField.Add("LOGIN");
+            ExFilterField.Add("REG");
+            ExFilterField.Add("LOGOFF");
+            bool iscon = false;
+            var controller = filterContext.RouteData.Values["controller"].ToString().ToString();
+            var action = filterContext.RouteData.Values["action"].ToString().ToUpper();
+            if (ExFilterField.Contains(action))
+            {
+                return;
+            }
+            if (filterContext.HttpContext.Session["aliUser"] == null)
+            {
+                filterContext.HttpContext.Response.Write(" <script type='text/javascript'> window.top.location='/AliUser/Login/'; </script>");
+                filterContext.Result = new EmptyResult();
+                return;
+            }
+        }
+
 
 
         /// <summary>
@@ -185,6 +212,19 @@ namespace AliexpressEF.YiDa.Controllers
                 fieldName,
                 fieldValue, id));
             return query.UniqueResult<long>() > 0;
+        }
+
+        //简单查询
+        public List<T> GetList<T>(string fieldName, string fieldValue, string where)
+        {
+            if (!string.IsNullOrEmpty(where))
+                where = @" and " + where;
+            var query = NSession.CreateQuery(
+                string.Format(@"from {0} as o where o.{1}='{2}' " + where,
+                typeof(T).Name,
+                fieldName,
+                fieldValue));
+            return query.List<T>().ToList<T>();
         }
 
         //判断字段的值是否存在 如果是插入id赋值-1或者new Guid,如果是修改id赋值 要修改项的值

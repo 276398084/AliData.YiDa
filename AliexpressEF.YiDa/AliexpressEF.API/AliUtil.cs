@@ -197,7 +197,7 @@ namespace AliexpressEF.API
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("client_id", ApiConfig.AliAppKey);
             dic.Add("site", "aliexpress");
-            dic.Add("redirect_uri", "http://127.0.0.1/");
+            dic.Add("redirect_uri", ApiConfig.SystemReturnUrl);
             dic.Add("state", "sss");
             dic.Add("_aop_signature", Sign("", dic, false));
             return url + GetParamUrl(dic);
@@ -208,18 +208,18 @@ namespace AliexpressEF.API
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public static string GetRefreshToken(string code, string returnUrl)
+        public static AliShop GetRefreshToken(string code)
         {
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("grant_type", "authorization_code");
             dic.Add("client_id", ApiConfig.AliAppKey);
             dic.Add("client_secret", ApiConfig.AliAppSecret);
-            dic.Add("redirect_uri", returnUrl);
+            dic.Add("redirect_uri", ApiConfig.SystemReturnUrl);
             dic.Add("code", code);
             dic.Add("need_refresh_token", "true");
             string c = PostWebRequest(IP + UrlGetToken + "/" + ApiConfig.AliAppKey, GetParamUrl(dic));
-            JToken token = (JToken)Newtonsoft.Json.JsonConvert.DeserializeObject(c);
-            return token["refresh_token"].ToString().Replace("\"", "");
+            AliShop shop = Newtonsoft.Json.JsonConvert.DeserializeObject<AliShop>(c);
+            return shop;
 
         }
 
@@ -312,6 +312,11 @@ namespace AliexpressEF.API
             dic.Add("outRef", orderExNo);
             string c = PostWebRequest(IP + Url + "sellerShipment/" + ApiConfig.AliAppKey, GetParamUrl(dic));
             return c;
+        }
+
+        public static DateTime GetAliDate(string DateStr)
+        {
+            return new DateTime(Convert.ToInt32(DateStr.Substring(0, 4)), Convert.ToInt32(DateStr.Substring(4, 2)), Convert.ToInt32(DateStr.Substring(6, 2)), Convert.ToInt32(DateStr.Substring(8, 2)), Convert.ToInt32(DateStr.Substring(10, 2)), Convert.ToInt32(DateStr.Substring(12, 2)));
         }
 
     }

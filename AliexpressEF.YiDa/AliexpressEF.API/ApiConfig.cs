@@ -11,5 +11,7 @@ namespace AliexpressEF.API
         public static string AliAppKey = "6722251";
 
         public static string AliAppSecret = "PYzA3dkGJX]";
+
+        public static string SystemReturnUrl = "http://localhost:29421/AliShop/Create/";
     }
 }

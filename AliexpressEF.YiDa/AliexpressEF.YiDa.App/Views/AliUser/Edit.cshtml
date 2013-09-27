@@ -5,114 +5,151 @@
 <script type="text/javascript">
     $(function () {
         //这里写加载下拉列表、修改编辑控件的初始化值
-	
+		
+        $('#e_BeginOn').datebox();
+
+
+        $('#e_EndOn').datebox();
+
+
+
+		parent.$.messager.progress('close');
+
+        $('#form').form({
+            url: '/AliUser/Edit',
+            onSubmit: function () {
+                parent.$.messager.progress({
+                    title: '提示',
+                    text: '数据处理中，请稍后....'
+                });
+                var isValid = $(this).form('validate');
+                if (!isValid) {
+                    parent.$.messager.progress('close');
+                }
+                return isValid;
+            },
+            success: function (result) {
+                parent.$.messager.progress('close');
+                result = $.parseJSON(result);
+                if (result.IsSuccess) {
+                    //parent.$.modalDialog.openner_treeGrid.treegrid('reload');//之所以能在这里调用到parent.$.modalDialog.openner_treeGrid这个对象，是因为resource.jsp页面预定义好了
+                    //parent.layout_west_tree.tree('reload');
+                    parent.$.modalDialog.penner_grid.datagrid('reload');
+                    parent.$.modalDialog.handler.dialog('close');
+                }
+				else{
+					alert(result.Result);
+				}
+
+            }
+        });
     });
 </script>
-@using (Html.BeginForm("Edit", "AliUser", FormMethod.Post, new { id = "e_form" }))
-{
-<fieldset>
-<table class="editForm">
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Id,"Id:")
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'center',border:false" title="" style="overflow: hidden;">
+		@using (Html.BeginForm("", "", FormMethod.Post, new { id = "form" }))
+		{
+		<table class="grid">
+				<tr>
+		<td align="right">
+            Id：
 		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Id,new{@id="e_Id"})
+		<td align="left">
+            <input  type='text' name='Id' id='Id' value='@Model.Id' ></input>
+		</td>
+		<td align="right">
+            用户名：
+		</td>
+		<td align="left">
+            <input  type='text' name='UserName' id='UserName' value='@Model.UserName' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            密码：
+		</td>
+		<td align="left">
+            <input  type='text' name='PassWord' id='PassWord' value='@Model.PassWord' ></input>
+		</td>
+		<td align="right">
+            真实名称：
+		</td>
+		<td align="left">
+            <input  type='text' name='RealName' id='RealName' value='@Model.RealName' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            手机：
+		</td>
+		<td align="left">
+            <input  type='text' name='Phone' id='Phone' value='@Model.Phone' ></input>
+		</td>
+		<td align="right">
+            地址：
+		</td>
+		<td align="left">
+            <input  type='text' name='Address' id='Address' value='@Model.Address' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            QQ：
+		</td>
+		<td align="left">
+            <input  type='text' name='QQ' id='QQ' value='@Model.QQ' ></input>
+		</td>
+		<td align="right">
+            WW：
+		</td>
+		<td align="left">
+            <input  type='text' name='WW' id='WW' value='@Model.WW' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            电话：
+		</td>
+		<td align="left">
+            <input  type='text' name='Tel' id='Tel' value='@Model.Tel' ></input>
+		</td>
+		<td align="right">
+            Memo：
+		</td>
+		<td align="left">
+            <input  type='text' name='Memo' id='Memo' value='@Model.Memo' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            Status：
+		</td>
+		<td align="left">
+            <input  type='text' name='Status' id='Status' value='@Model.Status' ></input>
+		</td>
+		<td align="right">
+            Type：
+		</td>
+		<td align="left">
+            <input  type='text' name='Type' id='Type' value='@Model.Type' ></input>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+            开始时间：
+		</td>
+		<td align="left">
+            <input  type='text' name='BeginOn' id='BeginOn' value='@Model.BeginOn' ></input>
+		</td>
+		<td align="right">
+            结束时间：
+		</td>
+		<td align="left">
+            <input  type='text' name='EndOn' id='EndOn' value='@Model.EndOn' ></input>
 		</td>
 	</tr>
 
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.UserName,"用户名:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.UserName,new{@id="e_UserName"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.PassWord,"密码:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.PassWord,new{@id="e_PassWord"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.RealName,"真实名称:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.RealName,new{@id="e_RealName"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Phone,"手机:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Phone,new{@id="e_Phone"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Address,"地址:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Address,new{@id="e_Address"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.QQ,"QQ:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.QQ,new{@id="e_QQ"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.WW,"WW:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.WW,new{@id="e_WW"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Tel,"电话:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Tel,new{@id="e_Tel"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Memo,"Memo:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Memo,new{@id="e_Memo"})
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-            @Html.LabelFor(model => model.Status,"Status:")
-		</td>
-		<td>
-            @Html.TextBoxFor(model => model.Status,new{@id="e_Status"})
-		</td>
-	</tr>
-
-
-    
-</table>
-</fieldset>
-}
+		</table>
+		}
+	</div>
+</div>

@@ -1,0 +1,142 @@
+﻿
+@model IEnumerable<AliexpressEF.YiDa.Domain.PrintTemplateType>
+@{
+    ViewBag.Title = "Index";
+}
+<body class="easyui-layout">
+
+<script language="javascript" type="text/javascript">
+        var grid;
+        $(function () {
+            grid = $('#dg').datagrid({
+                url: '/PrintTemplate/List',
+                pageNumber: 1,
+                idField: 'Id',
+                iconCls: 'icon-view',
+                height: 650,
+                width: function () { return document.body.clientWidth * 0.9 },
+                nowrap: true,
+                autoRowHeight: false,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                pageSize: 100,
+                pageList: [50, 100, 200],
+                rownumbers: true,
+                remoteSort: false,
+                columns: [[
+{ title: '主键标识', field: 'Id', width: 80, sortable: true },
+{ title: 'UId', field: 'UId', width: 80, sortable: true },
+{ title: '模板名称', field: 'TempName', width: 80, sortable: true },
+{ title: '模板内容', field: 'Content', width: 80, sortable: true }]]
+,
+                toolbar: [{
+                    id: 'btnAdd',
+                    text: '添加',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        ShowAddOrViewDialog();//实现添加记录的页面
+                    }
+                }, '-', {
+                    id: 'btnEdit',
+                    text: '修改',
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        ShowEditOrViewDialog();//实现修改记录的方法
+                    }
+                }, '-', {
+                    id: 'btnDelete',
+                    text: '删除',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        del(grid, '/AliShop/Delete');//实现直接删除数据的方法
+                    }
+                }, '-', {
+                    id: 'btnView',
+                    text: '查看',
+                    iconCls: 'icon-view',
+                    handler: function () {
+                        ShowEditOrViewDialog("view");//实现查看记录详细信息的方法
+                    }
+                }, '-', {
+                    id: 'btnReload',
+                    text: '刷新',
+                    iconCls: 'icon-reload',
+                    handler: function () {
+                        //实现刷新栏目中的数据
+                        grid.datagrid("reload");
+                    }
+                }]
+            });
+
+        });
+
+
+        function ShowAddOrViewDialog() {
+            parent.$.modalDialog({
+                title: '添加数据',
+                width: 650,
+                height: 350,
+                href: '/PrintTemplate/Create',
+                buttons: [{
+                    text: '添加',
+                    handler: function () {
+                        parent.$.modalDialog.penner_grid = grid;//将grid绑定到公共变量中
+                        var f = parent.$.modalDialog.handler.find('#form');
+                        f.submit();
+                    }
+                }]
+            });
+        }
+
+        //编辑框
+        function ShowEditOrViewDialog() {
+            var id = getselectedRow(grid);
+            if (id) {
+                parent.$.modalDialog({
+                    title: '编辑数据',
+                    width: 650,
+                    height: 300,
+                    href: '/PrintTemplate/edit/' + id,
+                    buttons: [{
+                        text: '修改',
+                        handler: function () {
+                            parent.$.modalDialog.penner_grid = grid;//将grid绑定到公共变量中
+                            var f = parent.$.modalDialog.handler.find('#form');
+                            f.submit();
+                        }
+                    }]
+                });
+            }
+        }
+
+
+        function doSearch() {
+            search = $('#txtSearch').searchbox("getName") + "&" + $('#txtSearch').searchbox("getValue") + "^";
+            grid.datagrid("load", {
+                search: search
+            });
+        }
+    </script>
+<div region="center">
+	<fieldset>
+        <legend>数据查询</legend>
+        <table border="0">
+			<tr>
+            <td><label>主键标识:</label><input type='text' id='txtId' />
+            </td>
+            <td><label>UId:</label><input type='text' id='txtUId' />
+            </td>
+            <td><label>模板名称:</label><input type='text' id='txtTempName' />
+            </td>
+            <td><label>模板内容:</label><input type='text' id='txtContent' />
+<a href='#' class='easyui-linkbutton' iconcls='icon-search' onclick='doSearch();'>查询</a></td>
+</tr>
+
+		</table>
+    </fieldset>
+	<table id="dg">  
+	</table>
+       
+</div>
+</body>

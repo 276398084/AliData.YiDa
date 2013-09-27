@@ -59,9 +59,9 @@ function ajaxFrom(form, url) {
         dataType: "json",
         success: function (data) {
             if (data.IsSuccess) {
-                alert(1);
+              
             }
-            alert(2);
+          
         }
     });
 }

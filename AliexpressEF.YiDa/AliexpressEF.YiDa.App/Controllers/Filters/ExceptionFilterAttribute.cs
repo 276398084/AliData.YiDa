@@ -12,20 +12,23 @@ namespace AliexpressEF.YiDa.Controllers.Filters
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            if (filterContext.Exception == null)
-                return;
-            var excResult = new ContentResult();
-            string msgTmp;
-            if (filterContext.Exception is ValidationException)//如果是验证类异常 ，就不出详细异常信息了
-                msgTmp = @"ShowErrorMsg('验证错误', '{0}')";
-            else
-                msgTmp = @"ShowErrorMsg('系统错误', '<b>异常消息: {0}</br><b>触发Action: {1}</br><b>异常类型:  </b>{2}')";
-            excResult.Content = String.Format(msgTmp,
-                    filterContext.Exception.GetBaseException().Message,
-                    filterContext.ActionDescriptor.ActionName,
-                    filterContext.Exception.GetBaseException().GetType().ToString());
-            filterContext.Result = excResult;
-            filterContext.ExceptionHandled = true;
+            //List<string> ExFilterField = new List<string>();
+            //ExFilterField.Add("LOGIN");
+            //ExFilterField.Add("REG");
+            //ExFilterField.Add("LOGOFF");
+            //bool iscon = false;
+            //var controller = filterContext.RouteData.Values["controller"].ToString().ToString();
+            //var action = filterContext.RouteData.Values["action"].ToString().ToUpper();
+            //if (ExFilterField.Contains(action))
+            //{
+            //    return;
+            //}
+            //if (filterContext.HttpContext.Session["aliUser"] == null)
+            //{
+            //    filterContext.HttpContext.Response.Write(" <script type='text/javascript'> window.top.location='/AliUserUser/Login/'; </script>");
+            //    filterContext.Result = new EmptyResult();
+            //    return;
+            //}
         }
     }
 }
