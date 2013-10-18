@@ -1,11 +1,10 @@
-﻿
-@model IEnumerable<AliexpressEF.YiDa.Domain.PrintTemplateType>
+﻿@model IEnumerable<AliexpressEF.YiDa.Domain.PrintTemplateType>
 @{
     ViewBag.Title = "Index";
 }
 <body class="easyui-layout">
 
-<script language="javascript" type="text/javascript">
+    <script language="javascript" type="text/javascript">
         var grid;
         $(function () {
             grid = $('#dg').datagrid({
@@ -118,25 +117,29 @@
             });
         }
     </script>
-<div region="center">
-	<fieldset>
-        <legend>数据查询</legend>
-        <table border="0">
-			<tr>
-            <td><label>主键标识:</label><input type='text' id='txtId' />
-            </td>
-            <td><label>UId:</label><input type='text' id='txtUId' />
-            </td>
-            <td><label>模板名称:</label><input type='text' id='txtTempName' />
-            </td>
-            <td><label>模板内容:</label><input type='text' id='txtContent' />
-<a href='#' class='easyui-linkbutton' iconcls='icon-search' onclick='doSearch();'>查询</a></td>
-</tr>
+    <div region="center">
+        <fieldset>
+            <legend>数据查询</legend>
+            <table border="0">
+                <tr>
+                    <td>
+                        <label>主键标识:</label><input type='text' id='txtId' />
+                    </td>
+                    <td>
+                        <label>UId:</label><input type='text' id='txtUId' />
+                    </td>
+                    <td>
+                        <label>模板名称:</label><input type='text' id='txtTempName' />
+                    </td>
+                    <td>
+                        <label>模板内容:</label><input type='text' id='txtContent' />
+                        <a href='#' class='easyui-linkbutton' iconcls='icon-search' onclick='doSearch();'>查询</a></td>
+                </tr>
 
-		</table>
-    </fieldset>
-	<table id="dg">  
-	</table>
-       
-</div>
+            </table>
+        </fieldset>
+        <table id="dg">
+        </table>
+
+    </div>
 </body>
