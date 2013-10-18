@@ -1,0 +1,121 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>数据打印</title>
+    <script src="~/Scripts/lodop/LodopFuncs.js"></script>
+    <script language="javascript" type="text/javascript">
+
+        $(function () {
+            init();
+        });
+
+
+        function CheckIsInstall() {
+            try {
+                var LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+                if ((LODOP != null) && (typeof (LODOP.VERSION) != "undefined")) alert("本机已成功安装过Lodop控件!\n  版本号:" + LODOP.VERSION);
+            } catch (err) {
+                //alert("Error:本机未安装或需要升级!"); 
+            }
+        };
+        var LODOP;
+        function init() {
+            LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+
+        }
+        function myPreview() {
+
+            LODOP.PRINT_INIT("");
+            LODOP.ADD_PRINT_TEXT(1, 2, 100, 20, "Hello,World!");
+            LODOP.PREVIEW();
+
+
+        };
+
+        function Moditify(item) {
+            LODOP = getLodop(document.getElementById('LODOP'), document.getElementById('LODOP_EM'));
+            if ((!LODOP.GET_VALUE("ItemIsAdded", item.name)) && (item.checked)) {
+                LODOP.ADD_PRINT_TEXTA(item.name, 56, 32, 175, 30, item.value);
+            } else {
+                LODOP.SET_PRINT_STYLEA(item.name, 'Deleted', !item.checked);
+            }
+        }
+        function CreatePage() {
+            LODOP = getLodop(document.getElementById('LODOP'), document.getElementById('LODOP_EM'));
+            LODOP.PRINT_INITA(0, 0, 760, 321, "打印控件功能演示_Lodop功能_在线编辑获得程序代码");
+            LODOP.ADD_PRINT_TEXT(10, 50, 175, 30, "先加的内容");
+        };
+        function DisplayDesign() {
+            CreatePage();
+            LODOP.SET_SHOW_MODE("DESIGN_IN_BROWSE", 1);
+            LODOP.PRINT_DESIGN();
+        };
+        function DisplaySetup() {
+            CreatePage();
+            LODOP.SET_SHOW_MODE("SETUP_IN_BROWSE", 1);
+            LODOP.SET_SHOW_MODE("MESSAGE_NOSET_PROPERTY", '不能设置属性，请用打印设计(本提示可修改)！');
+            LODOP.PRINT_SETUP();
+        };
+
+    </script>
+
+
+</head>
+
+<body>
+    <br />
+    <object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="810" height="407">
+        <param name="Caption" value="内嵌显示区域">
+        <param name="Border" value="1">
+        <param name="Color" value="#C0C0C0">
+        <embed id="LODOP_EM" type="application/x-print-lodop" width="810" height="407" pluginspage="install_lodop.exe">
+    </object>
+    <input type="button" value="测试" onclick="CheckIsInstall()" />
+    <input type="button" value="打印预览" onclick="myPreview()" />
+    <input type="button" value="设计" onclick="DisplayDesign()" />
+    <input type="button" value="打印预览" onclick="myPreview()" />
+    <script language="javascript" type="text/javascript">
+        function CreatePrintPage() {
+            LODOP.PRINT_INITA(32, 79, 505, 506, "套打EMS的模板");
+            LODOP.PRINT_INITA(12, 5, 306, 506, "套打EMS的模板");
+            LODOP.SET_PRINT_PAGESIZE(1, "100mm", "100mm", "");//设置纸张高度
+            LODOP.ADD_PRINT_TEXT(72, 130, 100, 20, "订单号");
+            LODOP.SET_PRINT_STYLEA(0, "FontName", "楷体");
+            LODOP.SET_PRINT_STYLEA(0, "FontSize", 14);
+            LODOP.SET_PRINT_STYLEA(0, "Bold", 1);
+            LODOP.ADD_PRINT_TEXT(124, 113, 100, 20, "收货人街道");
+            LODOP.ADD_PRINT_TEXT(198, 160, 100, 20, "收货人城市");
+            LODOP.ADD_PRINT_TEXT(251, 101, 100, 20, "收货人省");
+            LODOP.ADD_PRINT_TEXT(232, 280, 100, 20, "收货人国家");
+            LODOP.ADD_PRINT_TEXT(307, 109, 100, 20, "收货人邮编");
+            LODOP.ADD_PRINT_TEXT(292, 279, 100, 20, "收货人电话");
+            LODOP.ADD_PRINT_TEXT(345, 292, 100, 20, "收货人手机");
+            LODOP.ADD_PRINT_TEXT(391, 122, 100, 20, "物品+数量");
+            LODOP.ADD_PRINT_BARCODE(0, 136, 221, 48, "Code39", "123456789012");
+            LODOP.NewPage();
+            LODOP.ADD_PRINT_TEXT(72, 130, 100, 20, "订单号");
+            LODOP.SET_PRINT_STYLEA(0, "FontName", "楷体");
+            LODOP.SET_PRINT_STYLEA(0, "FontSize", 14);
+            LODOP.SET_PRINT_STYLEA(0, "Bold", 1);
+            LODOP.ADD_PRINT_TEXT(124, 113, 100, 20, "收货人街道");
+            LODOP.ADD_PRINT_TEXT(198, 160, 100, 20, "收货人城市");
+            LODOP.ADD_PRINT_TEXT(251, 101, 100, 20, "收货人省");
+            LODOP.ADD_PRINT_TEXT(232, 280, 100, 20, "收货人国家");
+            LODOP.ADD_PRINT_TEXT(307, 109, 100, 20, "收货人邮编");
+            LODOP.ADD_PRINT_TEXT(292, 279, 100, 20, "收货人电话");
+            LODOP.ADD_PRINT_TEXT(345, 292, 100, 20, "收货人手机");
+            LODOP.ADD_PRINT_TEXT(391, 122, 100, 20, "物品+数量");
+            LODOP.ADD_PRINT_BARCODE(0, 136, 221, 48, "Code39", "123456789012");
+
+
+        };
+    </script>
+    进入<a href="javascript:;" onclick="javascript:CreatePrintPage();LODOP.PRINT_DESIGN();">模板设计</a><br>
+    <br>
+    进入<a href="javascript:;" onclick="javascript:CreatePrintPage();LODOP.PREVIEW();">模板的打印预览</a>
+</body>
+</html>
+
+

@@ -58,7 +58,7 @@ namespace AliexpressEF.YiDa.Controllers
         {
 
             base.Update<Domain.AliOrderType>(obj);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
 
         }
 
@@ -67,7 +67,7 @@ namespace AliexpressEF.YiDa.Controllers
         {
 
             base.Delete<Domain.AliOrderType>(id);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
         }
 
         public JsonResult List(int page, int rows, string sort, string order, string search)

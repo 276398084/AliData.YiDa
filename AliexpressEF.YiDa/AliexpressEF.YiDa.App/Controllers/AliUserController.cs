@@ -17,8 +17,6 @@ namespace AliexpressEF.YiDa.Controllers
             return View();
         }
 
-
-
         public ActionResult Login()
         {
             return View();
@@ -74,14 +72,14 @@ namespace AliexpressEF.YiDa.Controllers
         public ActionResult Edit(AliUserType obj)
         {
             base.Update<AliUserType>(obj);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
         }
 
         [HttpPost, ActionName("Delete")]
         public JsonResult DeleteConfirmed(int id)
         {
             base.Delete<AliUserType>(id);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
         }
 
         public JsonResult List(int page, int rows, string sort, string order, string search)

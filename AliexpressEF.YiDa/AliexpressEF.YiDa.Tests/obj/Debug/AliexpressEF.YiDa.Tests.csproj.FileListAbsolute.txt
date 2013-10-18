@@ -39,3 +39,4 @@ E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\obj\Debug\AliexpressEF.YiDa.Tests.dll
 E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\obj\Debug\AliexpressEF.YiDa.Tests.pdb
+E:\sxd\Projects\AliexpressEF\AliexpressEF.YiDa\AliexpressEF.YiDa.Tests\obj\Debug\AliexpressEF.YiDa.Tests.csprojResolveAssemblyReference.cache

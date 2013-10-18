@@ -5,38 +5,39 @@
 
     $(function () {
         $('#PrintTemp').combobox({
-            url: '/PrintTemplate/QList',
+            url: '/PrintTemplate/ListALL',
             valueField: 0,
             textField: 1,
-            required: true,
             width: 300,
-            panelHeight: 'auto'
-        });
-        $('#PrintType').combobox({
-            url: '/Home/PrintCategory',
-            valueField: 'id',
-            textField: 'text',
-            required: true,
-            width: 300,
-            panelHeight: 'auto'
+            panelHeight: 'auto',
+            editable: false
         });
 
         $('#ReturnAddress').combobox({
             url: '/ReturnAddress/QList',
             valueField: 'Id',
             textField: 'Street',
-            required: true,
             width: 300,
-            panelHeight: 'auto'
+            panelHeight: 'auto',
+            editable: false
         });
+
+        var obj = window.opener.document.getElementById('printOrderNo').value;
+        $('#txtData').val(obj);
     })
 
 
     function showPrintWindow() {
+        var a = $("#PrintTemp").combobox("getValue");
+        var b = $("#ReturnAddress").combobox("getValue");
+        if (a == "" || b == "") {
+            alert("请选择模板和回邮地址");
+            return;
+        }
         $.ajax({
             type: "POST",
             url: "/Home/SetPrintData",
-            data: "t=" + $("#PrintType").combobox("getValue") + "&m=" + $("#PrintTemp").combobox("getValue") + "&r=" + $("#ReturnAddress").combobox("getValue") + "&d=" + $("#txtData").val(),
+            data: "m=" + a + "&r=" + b + "&d=" + $("#txtData").val(),
             success: function (msg) {
                 if (msg.IsSuccess != "") {
                     $('#printdata').val(msg.Result);
@@ -46,18 +47,12 @@
         });
     }
 </script>
-
+<input type="hidden" id="printdata" />
 <table>
-    <tr>
-        <input type="hidden" id="printdata" />
-        <td>打印类型</td>
-        <td>
-            <input type="text" id="PrintType" /></td>
-    </tr>
     <tr>
         <td>打印数据</td>
         <td>
-            <textarea style="width: 600px; height: 300px;" id="txtData">@ViewData["ids"]</textarea></td>
+            <textarea style="width: 600px; height: 300px;" id="txtData"></textarea></td>
     </tr>
     <tr>
         <td>打印模板</td>

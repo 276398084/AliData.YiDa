@@ -25,12 +25,12 @@ namespace AliexpressEF.YiDa.Domain
     /// <date></date>
     /// </author>
     /// </summary>
-    public class AliOrderProductTypeMap : BaseEntityMap<AliOrderProductType> 
+    public class AliOrderProductTypeMap : BaseEntityMap<AliOrderProductType>
     {
         public AliOrderProductTypeMap()
         {
             Table("AliOrderProducts");
-          
+
             Map(x => x.OId);
             Map(x => x.ItemId).Length(100);
             Map(x => x.SKU).Length(200);

@@ -31,5 +31,21 @@ namespace AliexpressEF.YiDa.Controllers
         {
             return View();
         }
+
+        public ActionResult PrintSetup()
+        {
+            return View();
+        }
+
+        public ActionResult PrintDetail()
+        {
+            return View();
+        }
+
+        public ActionResult PrintDesign()
+        {
+            return View();
+        }
+
     }
 }

@@ -66,7 +66,7 @@ namespace AliexpressEF.YiDa.Controllers
             //AliShopType shop = base.Get<AliShopType>(obj.Id);
             // shop.ShopTitle
             // base.Update<AliShopType>(obj);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
 
         }
 
@@ -75,7 +75,7 @@ namespace AliexpressEF.YiDa.Controllers
         {
 
             base.Delete<AliShopType>(id);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
         }
 
         public JsonResult GetALLBox()

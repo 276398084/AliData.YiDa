@@ -81,10 +81,10 @@
                     }
                 }, '-', {
                     id: 'btnView',
-                    text: '查看',
+                    text: '打印',
                     iconCls: 'icon-view',
                     handler: function () {
-                        ShowEditOrViewDialog("view");//实现查看记录详细信息的方法
+                        ShowPrintView();//实现查看记录详细信息的方法
                     }
                 }, '-', {
                     id: 'btnReload',
@@ -123,9 +123,19 @@
 
         });
 
+        function ShowPrintView() {
+
+            var rows = $('#dg').datagrid('getSelections');
+            var ids = [];
+            for (var i = 0; i < rows.length; i++) {
+                ids.push(rows[i]["OrderNo"]);
+            }
+            $('#printOrderNo').val(ids.join('\r\n'))
+            window.open('/Home/PrintSetup/');
+        }
+
 
         function Syn() {
-
             $.ajax({
                 url: '/AliOrder/Syn/',
                 type: "Post",
@@ -137,7 +147,6 @@
                 }
             });
         }
-
 
         //编辑框
         function ShowEditOrViewDialog() {
@@ -167,6 +176,7 @@
             });
         }
     </script>
+    <input type="hidden" id="printOrderNo" />
     <div region="center">
         <fieldset>
             <legend>数据查询</legend>

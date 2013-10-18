@@ -6,6 +6,12 @@
     <title>数据打印</title>
     <script src="~/Scripts/lodop/LodopFuncs.js"></script>
     <script language="javascript" type="text/javascript">
+
+        $(function () {
+            init();
+        });
+
+
         function CheckIsInstall() {
             try {
                 var LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
@@ -58,7 +64,7 @@
 
 </head>
 
-<body onload="init()">
+<body>
     <br />
     <object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="810" height="407">
         <param name="Caption" value="内嵌显示区域">

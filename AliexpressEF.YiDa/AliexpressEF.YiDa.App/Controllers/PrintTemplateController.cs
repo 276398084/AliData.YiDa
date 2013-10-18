@@ -47,7 +47,7 @@ namespace AliexpressEF.YiDa.Controllers
         {
 
             base.Update<PrintTemplateType>(obj);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
 
         }
 
@@ -56,7 +56,7 @@ namespace AliexpressEF.YiDa.Controllers
         {
 
             base.Delete<PrintTemplateType>(id);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
         }
 
         public JsonResult List(int page, int rows, string sort, string order, string search)
@@ -67,6 +67,15 @@ namespace AliexpressEF.YiDa.Controllers
 
             return Json(new { total = total, rows = objList });
         }
+
+        public JsonResult ListALL()
+        {
+            IList<PrintTemplateType> objList = base.GetList<PrintTemplateType>("UId", CurrentUser.Id.ToString(), "");
+
+            return Json(new { objList });
+        }
     }
 }
+
+
 

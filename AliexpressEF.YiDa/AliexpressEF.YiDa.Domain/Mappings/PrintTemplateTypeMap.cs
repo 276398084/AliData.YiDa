@@ -33,7 +33,7 @@ namespace AliexpressEF.YiDa.Domain
 
             Map(x => x.UId);
             Map(x => x.TempName).Length(40);
-            Map(x => x.Content);
+            Map(x => x.Content).CustomType("StringClob").CustomSqlType("ntext");
         }
     }
 }

@@ -47,7 +47,7 @@ namespace AliexpressEF.YiDa.Controllers
         {
 
             base.Update<CountryType>(obj);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
 
         }
 
@@ -56,7 +56,7 @@ namespace AliexpressEF.YiDa.Controllers
         {
 
             base.Delete<CountryType>(id);
-            return Json(new { IsSuccess = "true" });
+            return Json(new { IsSuccess = true });
         }
 
         public JsonResult List(int page, int rows, string sort, string order, string search)
